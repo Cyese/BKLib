@@ -1,0 +1,26 @@
+{
+  "name": "bklib",
+  "version": "1.0.0",
+  "description": "Advanced Programming Project",
+  "main": "librabry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cyese/BKLib.git"
+  },
+  "keywords": [
+    "Library"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cyese/BKLib/issues"
+  },
+  "homepage": "https://github.com/Cyese/BKLib#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
