@@ -180,7 +180,7 @@
                       </li>
                       <li>
                         <i class="fa-sharp fa-solid fa-id-badge"></i>
-                        MSSV 2112592 
+                        MSSV 2112592
                       </li>
                       <li>
                         <i class="fa-solid fa-envelope"></i>
@@ -284,35 +284,38 @@
     </div>
   </div> -->
   <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button> -->
-  <!-- REGIST -->
-  <!-- <div id="id01" class="modal1">
+
+  <!-- REGISTER -->
+  <div id="id01" class="modal1">
     <span onclick="document.getElementById('id01').style.display='none'" class="close"
       title="Close Modal">&times;</span>
 
     <div class="modal__body">
       <div class="auth-form">
-
-        <form class="modal-content" action="/action_page.php">
+        <div class="auth-form__header">
+          <h2 class="auth-form__heading">ĐĂNG KÝ</h2>
+          <!-- <span class="auth-form__switch-btn">Đăng nhập</span> -->
+          <button class="auth-form__switch-btn" , onclick="swaptab('id02')">
+            Đăng nhập</button>
+        </div>
+        <form class="modal-content" action="/action_page.php", style = "border: none;">
           <div class="container">
-            
+
             <div class="auth-form__container">
-              <div class="auth-form__header">
-                <h3 class="auth-form__heading">Đăng ký</h3>
-                <span class="auth-form__switch-btn">Đăng nhập</span>
-              </div>
+
               <div class="auth-form__form">
                 <div class="auth-form__group">
                   <input type="text" class="auth-form__input" , placeholder="Nhập tài khoản">
                 </div>
-    
+
                 <div class="auth-form__group">
                   <input type="password" class="auth-form__input" , placeholder="Nhập mật khẩu">
                 </div>
-    
+
                 <div class="auth-form__group">
                   <input type="password" class="auth-form__input" , placeholder="Nhập lại mật khẩu">
                 </div>
-    
+
               </div>
             </div>
             <div class="clearfix auth-form__controls">
@@ -335,40 +338,42 @@
         modal.style.display = "none";
       }
     }
-  </script> -->
+
+    function swaptab(id) {
+      var tabcontent, tablink;
+      var i;
+      tabcontent = document.getElementsByClassName("modal1");
+      for( i = 0; i < tabcontent.length; i++){
+        tabcontent[i].style.display = "none";
+      }
+      
+      // var tabcontent1 = document.getElementById('id01');
+      // tabcontent1.style.display = "none";
+       var tabcontent2 = document.getElementById(id);
+       tabcontent2.style.display = "flex";
+
+    }
+  </script>
 
   <!-- Login -->
-  <div id="id01" class="modal1">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+  <div id="id02" class="modal1">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close"
       title="Close Modal">&times;</span>
 
     <div class="modal__body">
       <div class="auth-form">
-
-        <form class="modal-content" action="/action_page.php">
+        <div class="auth-form__header">
+          <h3 class="auth-form__heading">Đăng nhập</h3>
+          <!-- <span class="auth-form__switch-btn">Đăng ký</span> -->
+          <button class="auth-form__switch-btn", onclick="swaptab('id01')">
+          Đăng ký</button>
+        </div>
+        <form class="modal-content" action="/action_page.php" style="border: none
+        ;">
           <div class="container">
 
-            <!-- <p>Please fill in this form to create an account.</p> -->
-            <!-- <hr>
-            <label for="account"><b>Tài khoản</b></label>
-            <input type="text" placeholder="Enter account" name="account" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-            <label>
-              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label>
-
-            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
             <div class="auth-form__container">
-              <div class="auth-form__header">
-                <h3 class="auth-form__heading">Đăng nhập</h3>
-                <span class="auth-form__switch-btn">Đăng ký</span>
-              </div>
+              
               <div class="auth-form__form">
                 <div class="auth-form__group">
                   <input type="text" class="auth-form__input" , placeholder="Nhập tài khoản">
@@ -382,12 +387,12 @@
 
             </div>
             <div class="clearfix auth-form__controls">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'"
+              <button type="button" onclick="document.getElementById('id02').style.display='none'"
                 class="cancelbtn btn auth-form__controls-back">TRỞ LẠI</button>
               <button type="submit" class="signupbtn btn btn--primary">ĐĂNG NHẬP</button>
             </div>
           </div>
-          
+
       </div>
       </form>
     </div>
@@ -395,7 +400,7 @@
   </div>
   <script>
     // Get the modal
-    var modal = document.getElementById('id01');
+    var modal = document.getElementById('id02');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -403,6 +408,7 @@
         modal.style.display = "none";
       }
     }
+    
   </script>
   <!-- <div class="auth-form">
                         <div class="auth-form__container">
@@ -445,17 +451,32 @@
                 <li class="category-item category-item--active">
                   <a href="#" class="category-item__link" id="click">Sách A</a>
                 </li>
+                <li class="category-item category-item--active", style="display: none">
+                  <a href="#" class="category-item__link" >Sách A</a>
+                </li>
 
                 <li class="category-item">
                   <a href="#" class="category-item__link">Sách B</a>
+                </li>
+                
+                <li class="category-item category-item--active", style="display: none">
+                  <a href="#" class="category-item__link" >Sách B</a>
                 </li>
 
                 <li class="category-item">
                   <a href="#" class="category-item__link">Sách C</a>
                 </li>
 
+                <li class="category-item category-item--active", style="display: none">
+                  <a href="#" class="category-item__link" >Sách C</a>
+                </li>
+
                 <li class="category-item">
                   <a href="#" class="category-item__link">Sách D</a>
+                </li>
+
+                <li class="category-item category-item--active", style="display: none">
+                  <a href="#" class="category-item__link" >Sách D</a>
                 </li>
               </ul>
             </nav>
