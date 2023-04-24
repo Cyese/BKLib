@@ -62,7 +62,7 @@
     display: flex;
     align-content: space-around;
     line-height: 50px;
-    
+    justify-content: center;
 }
 .nav_item{
     display: block;
@@ -93,13 +93,16 @@
     width: 100%;
     height: 100%;
     padding: 5px;
+    
 }
 .Person__list{
     list-style: none;
     display: flex;
     margin: 0;
-    width: 0;
-    height: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
 }
 .Person-icon__Person{
     font-size: 30px;
@@ -108,8 +111,8 @@
     display: flex;
     justify-content: center;
     padding: 5px;
-    margin-top: 21px;
-    margin-right: 5px;
+    margin-bottom: 12px;
+    /* margin-right: 5px; */
     /* margin-top: 33px; */
     /* padding-top: 30px; */
 }
@@ -119,17 +122,31 @@
     cursor: pointer;
     color: rgba(78, 75, 75, 0.7);
 }
+.Person-icon__Person-btn {
+    background-color: white; /* Blue background */
+    border: none; /* Remove borders */
+    height: 50px;
+    width: 50px;
+    padding: 12px 16px; /* Some padding */
+    font-size: 30px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+  }
+.Person-icon__Person-btn:hover {
+    background-color: white;
+}
 .Person-icon__Shopping{
     font-size: 30px;
     height: 50px;
     width: 50px;
     display: flex;
     justify-content: center;
-    padding: 5px;
-    margin-top: 21px;
+    /* padding: 5px;
+    margin-top: 21px; */
     /* margin-top: 33px; */
     /* padding-top: 30px; */
 }
+
+
 .header__search{
     height: 400px;
     width: 100%;
@@ -185,13 +202,15 @@
     color:rgba(78, 75, 75, 0.7)
 }
 /* Modal */
-.modal{
+.modal1{
     position: fixed;
+    display:none;
     top :0;
     right :0;
     bottom: 0;
     left: 0;
-    display: flex;
+    
+    justify-content: center  ;
     animation: fadeIn ease-in 0.1s;
 }
 .modal__overlay{
@@ -214,6 +233,68 @@
     z-index: 1;
     border-radius: 5px;
 }    
+/*  */
+.modal-content {
+    background-color: #fefefe;
+    margin: 0;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Add padding to container elements */
+  .container {
+    padding: 16px;
+  }
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+   
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+  }
 /* Auth - Modal */
 .auth-form{
     width: 500px;
@@ -225,12 +306,12 @@
     flex-direction: row;
     display: flex;
     align-items: center;
-    
+    margin: 5px;
     justify-content: space-between;
 }
 
 .auth-form__heading{
-    margin-left: 10px;
+    margin: 0;
     font-size: 18px;
     font-weight: 400;
     color: var(--text-color);
@@ -242,7 +323,7 @@
     font-weight: 400;
     color: var(--hcmut-color);
     display: flex;
-    margin-top: 17px;
+    margin: 0;
 }
 
 .auth-form-form{
@@ -458,10 +539,16 @@
 .contact-form__container{
     /* background-color: var(--hcmut-color); */
 }
+.contact_text{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
 .people{
    padding: 30px; 
    display: flex;
    justify-content: space-around;   
+   align-items: center;
 }
 .people_list_item{
     
@@ -472,7 +559,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     
-    background-image: url(/UI/img/test_people.jpg);
+    background-image: url(/UI/img/pngegg.png);
 }
 .people1_contact{
     list-style: none;
@@ -485,7 +572,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     
-    background-image: url(/UI/img/test_people.jpg);
+    background-image: url(/UI/img/pngegg\ \(2\).png);
 }
 .people2_contact{
     list-style: none;
@@ -498,7 +585,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     
-    background-image: url(/UI/img/test_people.jpg);
+    background-image: url(/UI/img/pngegg\ \(3\).png);
 }
 .people3_contact{
     list-style: none;
