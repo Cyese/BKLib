@@ -1,4 +1,4 @@
-const collection=require('../../mongodb')
+const collection=require('../models/accountdb')
 
 class UserSignupController{
     signup(req, res){
@@ -15,23 +15,19 @@ class UserSignupController{
     
         const checkNameExist = await collection.findOne({name:req.body.name})
         if(checkNameExist!=null){
-            if(req.body.name===checkNameExist.name){
-                res.render('signup', {message:"Username is not allowed"})
-            }
-            else{
-                if(data.password===data.passwordCheck){
+            res.render('signup', {message:"Username is not allowed"})
+        }
+        else{
+            if(data.password===data.passwordCheck){
+                if(req.body.key === '-999'){
+                    data.is_admin = true
                     await collection.insertMany([data])
                     res.redirect('login')
                 }
                 else{
-                    res.render('signup', {message:"Your re-password is not correct"})
+                    await collection.insertMany([data])
+                    res.redirect('login')
                 }
-            }
-        }
-        else{
-            if(data.password===data.passwordCheck){
-                await collection.insertMany([data])
-                res.render('home')
             }
             else{
                 res.render('signup', {message:"Your re-password is not correct"})

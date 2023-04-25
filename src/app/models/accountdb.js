@@ -18,7 +18,7 @@ const LoginSchema=new mongoose.Schema({
         require:true
     },
     is_admin:{
-        type: Number,
+        type: Boolean,
         require: true
     }
 })
