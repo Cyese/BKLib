@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars').engine
-const collection=require('./mongodb')
+const collection=require('./app/models/accountdb')
 const app = express()
 const port = 3000
 
