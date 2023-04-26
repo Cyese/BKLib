@@ -1,54 +1,106 @@
-class Book {
-    constructor(title, author, publish_year){
-        this.title = title;
-        this.author = author;
-        this.publish_year = publish_year;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+// const Object = mongoose.Schema.Types.ObjectId;
+mongoose.connect("mongodb://127.0.0.1:27017/Library");
+
+const Book = new Schema({
+    title : {type : String, require : true},
+    author : {type : String, require : true},
+    publishYear : {type : Number, require : true},
+    description : String,
+    genre : [String],
+    quantity : Number,
+    available : Number,
+    Borrow_List : [String]
+})
+
+Book.method.get = ()  => {return {
+    title : this.title,
+    author : this.author,
+    publishYear : this.publishYear
+}}
+
+
+Book.method.addDescription = function(description) {
+    this.description = description;
+}
+Book.method.modify = function(FieldToModify, value){
+    if (this[FieldToModify] == undefined){
+        throw "Unexpected data to modify!"
     }
-    get info() {
-        return this.title + ", writen by " + this.author+ " "+ this.publish_year;
-    }
-    add_description(description){this.description = description;}
-    modify(field_to_modify, value){
-        // Looking for wait to add a check for data
-        if (this[field_to_modify] == undefined){
-            throw "Unexpected data to modify!"
-        }
-        this[field_to_modify] = value
-    }
-    /* 
-        To do:
-        sneakpeak(): allow reading a first few paragraph
-        and more i guess ~~
-    */ 
+    this[FieldToModify] = value;
+}
+Book.method.info = function(){
+    return this.toString();
+}
+Book.method.addGenre = function(gerne){
+    this.genre.push(gerne);
+}
+Book.method.Genre = function(){
+    return this.genre;
 }
 
-// This is class for Document that is available to all
-// class OpenDocument extends Book {}
+Book.method.getBorrowingList = () =>  {return this.Borrow_List}
 
-// This is class for Document that required specified permission to access
-// class PrivateDocument extends Book {}
+Book.method.getUnavailable = () => {return this.quantity-this.available}
 
+const BookManager = mongoose.model('Manager', Book)
 
-class Librabry {
-    constructor(){
-
-    }
-
-
+BookManager.statics.returnBook = (title, username) =>{
+    BookManager.findOneAndUpdate({title: title}, 
+        {$pop : {Borrow_List: username}},
+        {$inc : {available: 1}},
+        (err,doc) => {if (err) throw err})
 }
 
-
-
-
-
-
-// Down here is a testing site ~~
-const book1 = new Book("White fang", "Jack London", 1985);
-
-try {
-    book1.modify("publish_year", 1999)
-} catch (error) {
-    console.log(error);
-} finally {
-    console.log(book1.info);
+BookManager.statics.borrowBook = (title) =>{
+    BookManager.findOneAndUpdate({title: title}, 
+        {$push : {Borrow_List: username}}, 
+        {$dec : {available : 1}},
+        (err,doc) => {if (err) throw err; return "You have borrow the book"})
 }
+
+BookManager.statics.sortByGenre = (genre) =>{
+    return BookManager.find({genre : {$in : [genre]}}).then((book) => book.get)
+}
+
+BookManager.statics.modifyQuantity = (title, valueToModify) => {
+    BookManager.findOneAndUpdate({title: title}, {$inc :{quantity : valueToModify}}, {$inc : {available: valueToModify}}, (err,doc) => {
+        if (err) throw err
+        else return "Successful save"
+    })
+}
+const Library = new mongoose.model('Manager', BookManager)
+
+Library.method.addBook = (title, author, publishYear) => {
+    const doc = new BookManager({
+        title : title,
+        author: author,
+        publishYear : publishYear
+    })
+    doc.save((err) => {
+        if (err) throw err
+    })
+    return doc.Book.info
+}
+
+Library.method.getGenre = (genre) =>{return BookManager.sortByGenre(genre)}
+Library.method.modifyQuantity = (title, valueToModify) => {return BookManager.modifyQuantity(title,valueToModify)} 
+Library.method.borrowBook = (title,username) => {return BookManager.borrowBook(title,username)}
+Library.method.returnBook = (title,username) => {return BookManager.returnBook(title,username)}
+Library.method.modifyDescription = (title, description) => {BookManager.findOneAndUpdate({title: title}, (err, doc) => {
+    if (err) throw err
+    doc.addDescription(description)
+    doc.save((err) => {if (err) throw err})
+})}
+Library.method.getBorrowingList = (title) => {return BookManager.findOne({title : title}, (err,doc) => {
+    if (err) throw err
+    return doc.getBorrowingList()
+})}
+Library.method.addGenre = (title,genre) => {BookManager.findOneAndUpdate({title: title}, (err,doc) =>{
+    if (err) throw err
+    doc.addGenre(genre)
+    doc.save((err) => {if (err) throw err})
+})}
+
+module.exports=Library
