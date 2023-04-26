@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-// mongoose.connect("mongodb+srv://dangnguyen:C1NMTWSTggsu6dVT@cluster0.7ab0rak.mongodb.net/?retryWrites=true&w=majority")
-mongoose.connect("mongodb://127.0.0.1:27017/Account")
+mongoose.connect("mongodb://127.0.0.1:27017/database")
 
 
 const LoginSchema=new mongoose.Schema({
@@ -23,6 +22,6 @@ const LoginSchema=new mongoose.Schema({
     }
 })
 
-const collection=mongoose.model("Collection", LoginSchema)
+const account=mongoose.model("account", LoginSchema)
 
-module.exports=collection
+module.exports=account

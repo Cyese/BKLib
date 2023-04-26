@@ -2,7 +2,9 @@
 class TrangChuController{
 
     trangchu(req, res){
-        res.render('trangchu')
+        res.render('trangchu', {
+            layout: 'main'
+        })
     }
    
 }

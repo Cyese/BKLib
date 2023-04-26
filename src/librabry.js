@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 mongoose.connect("mongodb://127.0.0.1:27017/Library");
 
-const Book = new Schema({
+var Book = new Schema({
     title : {type : String, require : true},
     author : {type : String, require : true},
     publishYear : {type : Number, require : true},
@@ -44,7 +44,7 @@ Book.method.getBorrowingList = () =>  {return this.Borrow_List}
 
 Book.method.getUnavailable = () => {return this.quantity-this.available}
 
-const BookManager = mongoose.model('Manager', Book)
+const BookManager = new Schema('Manager', Book)
 
 BookManager.statics.returnBook = function returnBook (title, username){
     BookManager.findOneAndUpdate({title: title}, 
@@ -70,10 +70,10 @@ BookManager.statics.modifyQuantity = function modifyQuantity (title, valueToModi
         else return "Successful save"
     })
 }
-const Library = mongoose.model('Manager', BookManager)
+var Library = new mongoose.model('Manager', BookManager)
 
 Library.method.addBook = (title, author, publishYear) => {
-    const doc = new BookManager({
+    const doc = new mongoose.model({
         title : title,
         author: author,
         publishYear : publishYear
