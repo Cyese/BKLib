@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-// const Object = mongoose.Schema.Types.ObjectId;
+const {Schema} = mongoose;
+
 mongoose.connect("mongodb://127.0.0.1:27017/Library");
 
 const Book = new Schema({
@@ -46,31 +46,31 @@ Book.method.getUnavailable = () => {return this.quantity-this.available}
 
 const BookManager = mongoose.model('Manager', Book)
 
-BookManager.statics.returnBook = (title, username) =>{
+BookManager.statics.returnBook = function returnBook (title, username){
     BookManager.findOneAndUpdate({title: title}, 
         {$pop : {Borrow_List: username}},
         {$inc : {available: 1}},
         (err,doc) => {if (err) throw err})
 }
 
-BookManager.statics.borrowBook = (title) =>{
+BookManager.statics.borrowBook = function borrowBook(title){
     BookManager.findOneAndUpdate({title: title}, 
         {$push : {Borrow_List: username}}, 
         {$dec : {available : 1}},
         (err,doc) => {if (err) throw err; return "You have borrow the book"})
 }
 
-BookManager.statics.sortByGenre = (genre) =>{
+BookManager.statics.sortByGenre = function sortByGenre (genre) {
     return BookManager.find({genre : {$in : [genre]}}).then((book) => book.get)
 }
 
-BookManager.statics.modifyQuantity = (title, valueToModify) => {
+BookManager.statics.modifyQuantity = function modifyQuantity (title, valueToModify) {
     BookManager.findOneAndUpdate({title: title}, {$inc :{quantity : valueToModify}}, {$inc : {available: valueToModify}}, (err,doc) => {
         if (err) throw err
         else return "Successful save"
     })
 }
-const Library = new mongoose.model('Manager', BookManager)
+const Library = mongoose.model('Manager', BookManager)
 
 Library.method.addBook = (title, author, publishYear) => {
     const doc = new BookManager({
@@ -84,20 +84,20 @@ Library.method.addBook = (title, author, publishYear) => {
     return doc.Book.info
 }
 
-Library.method.getGenre = (genre) =>{return BookManager.sortByGenre(genre)}
-Library.method.modifyQuantity = (title, valueToModify) => {return BookManager.modifyQuantity(title,valueToModify)} 
-Library.method.borrowBook = (title,username) => {return BookManager.borrowBook(title,username)}
-Library.method.returnBook = (title,username) => {return BookManager.returnBook(title,username)}
-Library.method.modifyDescription = (title, description) => {BookManager.findOneAndUpdate({title: title}, (err, doc) => {
+Library.statics.getGenre = function getGenre (genre) {return BookManager.sortByGenre(genre)}
+Library.statics.modifyQuantity = function modifyQuantity (title, valueToModify) {return BookManager.modifyQuantity(title,valueToModify)} 
+Library.statics.borrowBook = function borrowBook (title,username)  {return BookManager.borrowBook(title,username)}
+Library.statics.returnBook = function returnBook (title,username) {return BookManager.returnBook(title,username)}
+Library.statics.modifyDescription = function modifyDescription (title, description) {BookManager.findOneAndUpdate({title: title}, (err, doc) => {
     if (err) throw err
     doc.addDescription(description)
     doc.save((err) => {if (err) throw err})
 })}
-Library.method.getBorrowingList = (title) => {return BookManager.findOne({title : title}, (err,doc) => {
+Library.method.getBorrowingList = function getBorrowingList (title) {return BookManager.findOne({title : title}, (err,doc) => {
     if (err) throw err
     return doc.getBorrowingList()
 })}
-Library.method.addGenre = (title,genre) => {BookManager.findOneAndUpdate({title: title}, (err,doc) =>{
+Library.method.addGenre = function addGenre (title,genre) {BookManager.findOneAndUpdate({title: title}, (err,doc) =>{
     if (err) throw err
     doc.addGenre(genre)
     doc.save((err) => {if (err) throw err})
