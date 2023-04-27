@@ -330,34 +330,34 @@
               </h3>
               <ul class="category-list">
                 <li class="category-item category-item--active">
-                  <a href="#" class="category-item__link" id="click">Sách A</a>
+                  <a href="/?type=Novel" class="category-item__link" id="click">Tiểu thuyết</a>
                 </li>
                 <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách A</a>
+                  <a href="#" class="category-item__link" >Tiểu thuyết</a>
                 </li>
 
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách B</a>
+                  <a href="/?type=Document" class="category-item__link">Giáo trình</a>
                 </li>
                 
                 <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách B</a>
+                  <a href="/?type=Document" class="category-item__link" >Giáo trình</a>
                 </li>
 
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách C</a>
+                  <a href="/?type=Megazine" class="category-item__link">Tạp chí</a>
                 </li>
 
                 <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách C</a>
+                  <a href="/?type=Megazine" class="category-item__link" >Tạp chí</a>
                 </li>
 
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách D</a>
+                  <a href="/?type=Comic" class="category-item__link">Truyện tranh</a>
                 </li>
 
                 <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách D</a>
+                  <a href="/?type=Comic" class="category-item__link">Truyện tranh</a>
                 </li>
               </ul>
             </nav>
@@ -376,17 +376,27 @@
               <div class="grid__row">
                 {{#if Books}}
                   {{#each Books}}
-                    <div class="card" style="width: 16rem;">
-                      {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-                      <div class="card-body">
-                        <h5 class="card-title"></h5><strong>{{this.title}}</strong></h5>
-                          <p class="card-text "><i>Author: {{this.author}}</i></p>
-                          <p class="card-text">Publish Year:{{this.publishYear}}</p>
-                          <p class="card-text">Availabe:{{this.available}}</p>
-                        <a href="#" class="btn btn-primary">Borrow</a>
+                    <span class="border border-success-subtle rounded">
+                          <div class="card" style="width: 15rem">
+                          {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+                            <div class="card-body">
+                              <h5 class="card-title fs-3"></h5><strong>{{this.title}}</strong></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text fs-6 lh-1"><i>Author: {{this.author}}</i></p>
+                                <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p>
+                                <p class="card-text fs-6 lh-1">Availabe:{{this.available}}</p>
+                            </div>
+                            <div class="card-footer">
+                              <a href="#" class="btn btn-primary">Borrow</a>
+                            </div>
                       </div>
-                    </div>
+                    </span>
                   {{/each}}
+                  {{else}}
+                    <div class = "col-sm-12"><p>
+                      No books found
+                    </p></div>
                 {{/if}}
               </div>
             </div>

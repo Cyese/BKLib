@@ -18,8 +18,8 @@ class Library {
         newBook.save();
     }
 
-    static sortByType = (type) => {
-        return Book.find({type : type}).limit(15).then((book) => 
+    static sortByType = (atype) => {
+        return Book.find({type : atype}).limit(12).then((book) => 
             {
                 book = book.map(book => book.toObject())
                 return book
