@@ -1,10 +1,11 @@
 const Library = require('./Library')
 
 class TrangChuController{
-    trangchu(req, res){
-        // Library.addBook('title', 'author', 2002)
+    async trangchu(req, res){
+        const Books = await Library.sortByType('Novel')
         res.render('index', {
             layout: 'main', 
+            Books: Books
         })
     }
    

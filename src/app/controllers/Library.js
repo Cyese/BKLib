@@ -6,13 +6,24 @@ class Library {
     static addDescription = (title, description) => {
         Book.findOneAndUpdate({title: title}, {$set : {description : description}}, (err,doc) => {if (err) throw err})
     }
-    static addBook = (title, author, publishYear) => {
-        const newBook = new Book({title : title, author: author, publishYear: publishYear})
-        newBook.save((err) => {if (err) throw err});
+    static addBook = (title, author, publishYear, type = 'Novel' ) => {
+        const newBook = new Book({
+            title : title,
+            author: author,
+            publishYear: publishYear,
+            type : type,
+            available : 1,
+            quantity : 1,
+        })
+        newBook.save();
     }
+
     static sortByType = (type) => {
-        return Book.find({type : type}, (err,doc) => {
-            if (err) throw err }) .then((books) => {books.info})
+        return Book.find({type : type}).limit(15).then((book) => 
+            {
+                book = book.map(book => book.toObject())
+                return book
+            })
     }
     static borrowBook = (title, username) => {
         const book = Book.findOne({title: title})
