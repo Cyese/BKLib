@@ -1,5 +1,4 @@
 const account=require('../models/accountdb')
-
 class UserHomeController{
     index(req, res, next){
         account.find({})
