@@ -14,11 +14,7 @@ class UserLoginController{
                     res.redirect('adminhome')
                 }
                 else{
-                    // collection.findOne({name : req.body.name})
-                    // .then(obj => res.render('home', {name : obj.name}))
-                    // .catch(next)
-                    // res.redirect('home')
-                    res.redirect('home')
+                    res.redirect('home?name=' + req.body.name)
                 }
             }
             else{
