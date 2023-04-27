@@ -10,6 +10,9 @@
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Publish year</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">In store</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -19,10 +22,17 @@
                 <td>{{this.title}}</td>
                 <td>{{this.author}}</td>
                 <td>{{this.publishYear}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.available}}</td>
+                <td>
+                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modify" data-id="{{this._id}}"> Edit </a>
+                </td>
             </tr>
+
+
             {{else}}
             <tr>
-              <td colspan="5" class="text-center">
+              <td colspan="6" class="text-center">
                 Chua co cuon sach nao 
               </td>
             </tr>
@@ -30,3 +40,39 @@
         </tbody>
     </table>
 </div>
+
+<div id="modify" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> Bạn có muống xóa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-book" type="button" class="btn btn-danger">Xóa bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form name="modifyBook" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var bookId
+    var modifyForm = document.forms['modifyBook']
+    var btnDelete = document.getElementById('btn-delete-book')
+    $('#modify').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      bookId = button.data('id')
+    })
+
+    btnDelete.onclick= function(){
+        modifyForm.action = 'book/' + bookId + '?_method=DELETE'
+        modifyForm.submit()
+    }
+  })
+</script>

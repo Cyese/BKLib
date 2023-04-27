@@ -7,6 +7,13 @@ class adminLibrary extends Library {
         Book.findOneAndUpdate({title : title}, {$set : {type : type}},(err,doc) => {
             if (err) throw err})
     }
+    static bookList = () => {
+        return Book.find({}).then((book) => 
+            {
+                book = book.map(book => book.toObject())
+                return book
+            })
+    }
     static modifyData = (title, target, data) => {
         const updateObj = {}
         updateObj[target] = data
@@ -24,7 +31,7 @@ class adminLibrary extends Library {
             (err,doc) => {
                 if (err) throw err
             }
-            )
+        )
     } 
 }
 

@@ -1,7 +1,7 @@
 const { multipleToObject } = require('../../util/mongoose')
 const account=require('../models/accountdb')
 const book=require('../models/book')
-
+const Library = require('./Library')
 class AdminHomeController{
     index(req, res){
         res.render('adminhome', {
@@ -36,7 +36,11 @@ class AdminHomeController{
             })
             .catch(next)
     }
-
+    bookModify(req, res, next){
+        book.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
 }
 
 module.exports = new AdminHomeController
