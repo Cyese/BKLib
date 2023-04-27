@@ -1,9 +1,10 @@
 
 class TrangChuController{
-
-    trangchu(req, res){
-        res.render('trangchu', {
-            layout: 'main'
+    async trangchu(req, res){
+        const Books = await Library.sortByType('Novel')
+        res.render('index', {
+            layout: 'main', 
+            Books: Books
         })
     }
    
