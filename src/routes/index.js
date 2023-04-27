@@ -3,7 +3,6 @@ const userLoginRouter=require('./LoginRoute')
 const userSignupRouter=require('./SignupRoute')
 const adminHomeRouter=require('./adminHomeRoute')
 const userHomeRouter=require('./userHomeRoute')
-const book=require('./bookRoute')
 
 function route(app){
     app.use('/', TrangChuRouter)
@@ -16,7 +15,6 @@ function route(app){
 
     app.use('/adminhome', adminHomeRouter)
 
-    app.use('/book', book)
 }
 
 module.exports = route

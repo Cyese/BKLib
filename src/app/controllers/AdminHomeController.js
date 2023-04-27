@@ -20,6 +20,12 @@ class AdminHomeController{
             .catch(next)
     }
 
+    destroy(req, res, next){
+        account.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
     bookManage(req, res, next){
         book.find({})
             .then(books => {
