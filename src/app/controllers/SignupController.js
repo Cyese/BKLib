@@ -2,7 +2,9 @@ const collection=require('../models/accountdb')
 
 class UserSignupController{
     signup(req, res){
-        res.render('signup')
+        res.render('signup', {
+            layout: 'LoginSignup'
+        })
     }
     async usersignup(req, res){
         const data={
@@ -15,7 +17,10 @@ class UserSignupController{
     
         const checkNameExist = await collection.findOne({name:req.body.name})
         if(checkNameExist!=null){
-            res.render('signup', {message:"Username is not allowed"})
+            res.render('signup', {
+                message:"Username is not allowed",
+                layout: 'LoginSignup'
+            })
         }
         else{
             if(data.password===data.passwordCheck){
@@ -30,7 +35,10 @@ class UserSignupController{
                 }
             }
             else{
-                res.render('signup', {message:"Your re-password is not correct"})
+                res.render('signup', {
+                    message:"Your re-password is not correct",
+                    layout: 'LoginSignup'
+                })
             }
         }
     }

@@ -1,0 +1,32 @@
+<div class="mt-4">
+    <div>
+      <h3>Danh sach sach</h3>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Publish year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each books}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.title}}</td>
+                <td>{{this.author}}</td>
+                <td>{{this.publishYear}}</td>
+            </tr>
+            {{else}}
+            <tr>
+              <td colspan="5" class="text-center">
+                Chua co cuon sach nao 
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

@@ -17,14 +17,14 @@ const BookSchema = new Schema({
 })
 
 const Book = mongoose.model('Book', BookSchema)
-Book.method.info = function (){
-    return {
-        title : this.title,
-        author : this.author,
-        publishYear : this.publishYear,
-        description : this.description,
-        available : this.available
-    }
-}
+// Book.method.info = function (){
+//     return {
+//         title : this.title,
+//         author : this.author,
+//         publishYear : this.publishYear,
+//         description : this.description,
+//         available : this.available
+//     }
+// }
 
 module.exports=Book

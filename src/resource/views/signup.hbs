@@ -1,16 +1,17 @@
- <h2>Sign up</h2>
-
-<form action="/signup" method="post">
-    <input type="text" name="name" placeholder="Your full name">
-        <br><br>
-        <input type="email" name="email" placeholder="Your email">
-        <br><br>
-        <input type="password" name="password" placeholder="Your password">
-        <br><br>
-        <input type="password" name="passwordCheck" placeholder="Your re-password">
-        <br><br>
-        <input type="authencation" name="key" placeholder="Enter your authencation key (optional)">
-        <br><br>
-    <input type="submit">
+<div class="form-box mx-auto col-10 col-md-8 col-lg-6" style="left: 50%; top: 180px">
+<form action="/signup" method="post" class="form">
+    <span class="title">Sign up</span>
+    <div class="form-container">
+      <input type="text" class="input" name="name" placeholder="Enter your username" required="">
+			<input type="email" class="input" name="email" placeholder="Email" required="">
+		    <input type="password" class="input" name="password" placeholder="Password" required="">
+            <input type="password" class="input" name="passwordCheck" placeholder="Your re-password" required="">
+            <input type="authencation" class="input" name="key" placeholder="Enter your authencation key (optional)">
+    </div>
+    <button type="submit">Sign up</button>
+    <p style="color: green;">{{message}}</p>
 </form>
-<p style="color: green;">{{message}}</p>
+<div class="form-section">
+  <p class="text-center">Have an account? <a href="/login">Log in</a> </p>
+</div>
+</div>

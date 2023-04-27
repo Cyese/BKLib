@@ -2,7 +2,9 @@ const collection=require('../models/accountdb')
 
 class UserLoginController{
     login(req, res){
-        res.render('login')
+        res.render('login', {
+            layout: 'LoginSignup'
+        })
     }
     async userLogin(req, res, next){
         try{
@@ -20,11 +22,17 @@ class UserLoginController{
                 }
             }
             else{
-                res.render('login', {message:"Wrong password"})
+                res.render('login', {
+                    message:"Wrong username or password",
+                    layout: 'LoginSignup'
+                })
             }
         }
         catch{
-            res.render('login', {message:"Wrong username"})
+            res.render('login', {
+                message:"Wrong username or password",
+                layout: 'LoginSignup'
+            })
         }
     }
 }
