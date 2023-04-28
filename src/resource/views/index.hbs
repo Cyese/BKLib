@@ -119,9 +119,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
     <!-- <div class="modal">
@@ -317,7 +314,6 @@
                    </div> -->
   <!-- </div>
         </div> -->
-
   <div class="shopping_area">
     <div class="shopping_container">
       <div class="grid">
@@ -329,40 +325,43 @@
                 Danh Mục
               </h3>
               <ul class="category-list">
-                <li class="category-item category-item--active">
-                  <a href="#" class="category-item__link" id="click">Sách A</a>
-                </li>
-                <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách A</a>
-                </li>
-
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách B</a>
+                  <button class="btn" id="btnClick1" data-query ="Novel" >Tiểu thuyết</button>
                 </li>
-                
-                <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách B</a>
-                </li>
-
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách C</a>
+                  <button class="btn" id="btnClick2" data-query="Document" >Tài liệu</button>
                 </li>
-
-                <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách C</a>
-                </li>
-
                 <li class="category-item">
-                  <a href="#" class="category-item__link">Sách D</a>
+                  <button class="btn" id="btnClick3" data-query= "Megazin">Tạp chí</button>
                 </li>
-
-                <li class="category-item category-item--active", style="display: none">
-                  <a href="#" class="category-item__link" >Sách D</a>
+                <li class="category-item">
+                  <button class="btn" id="btnClick4" data-query= "Comic">Truyện tranh</button>
                 </li>
               </ul>
             </nav>
           </div>
-
+        <script>
+          const button1 = document.getElementById("btnClick1")
+          button1.addEventListener('click', () => {
+              const data = button1.dataset.query
+              window.location.href = "/?type=" + data
+          })
+          const button2 = document.getElementById("btnClick2")
+          button2.addEventListener('click', () => {
+              const data = button2.dataset.query
+              window.location.href = "/?type=" + data
+          })
+          const button3 = document.getElementById("btnClick3")
+          button3.addEventListener('click', () => {
+              const data = button3.dataset.query
+              window.location.href = "/?type=" + data
+          })
+          const button4 = document.getElementById("btnClick4")
+          button4.addEventListener('click', () => {
+              const data = button4.dataset.query
+              window.location.href = "/?type=" + data
+          })
+        </script>
           <div class="grid__column-10">
             <div class="home-filter">
               <!-- <div class="select-input">
@@ -376,18 +375,33 @@
               <div class="grid__row">
                 {{#if Books}}
                   {{#each Books}}
-                    <div class="card" style="width: 16rem;">
-                      {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-                      <div class="card-body">
-                        <h5 class="card-title"></h5><strong>{{this.title}}</strong></h5>
-                          <p class="card-text "><i>Author: {{this.author}}</i></p>
-                          <p class="card-text">Publish Year:{{this.publishYear}}</p>
-                          <p class="card-text">Availabe:{{this.available}}</p>
-                        <a href="#" class="btn btn-primary">Borrow</a>
+                    <span class="border border-success-subtle rounded">
+                          <div class="card" style="width: 15rem">
+                          {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+                            <div class="card-body">
+                              <h5 class="card-title fs-3"></h5><strong>{{this.title}}</strong></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text fs-6 lh-1"><i>Author: {{this.author}}</i></p>
+                                <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p>
+                                <p class="card-text fs-6 lh-1">Availabe:{{this.available}}</p>
+                            </div>
+                            <div class="card-footer">
+                              <button class="btn btn-primary" id = "bButton", data-query="{title : {{this.title}} }">Borrow</button>
+                            </div>
                       </div>
-                    </div>
+                    </span>
                   {{/each}}
+                  {{else}}
+                    <div class = "col-sm-12"><p>
+                      No books found
+                    </p></div>
                 {{/if}}
+                <script>
+                    const button = document.getElementById("bButton")
+                    button.dataset.toObject()
+                    console(button)
+                </script>
               </div>
             </div>
           </div>
@@ -396,7 +410,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  {{!-- <footer class="footer">
     <div class="grid">
       <div class="grid__row">
         <div class="grid__column-6">
@@ -449,7 +463,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> --}}
 </body>
 
 </html>

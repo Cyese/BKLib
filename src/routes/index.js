@@ -14,6 +14,7 @@ function route(app){
     app.use('/home', userHomeRouter)
     
     app.use('/adminhome', adminHomeRouter)
+
 }
 
 module.exports = route

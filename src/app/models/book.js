@@ -9,7 +9,7 @@ const BookSchema = new Schema({
     description : String,
     type : {
         type: String,
-        enum: ['Novel', 'Document', 'Research', 'Megazine']
+        enum: ['Novel', 'Document', 'Megazine', 'Comic']
     },
     quantity : Number,
     available : Number,

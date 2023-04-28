@@ -7,8 +7,9 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">User name</th>
+                <th scope="col">Ten dang nhap</th>
                 <th scope="col">Email</th>
+                <th scope="col">Xoa tai khoan</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,9 @@
                 <th scope="row">{{sum @index 1}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.email}}</td>
+                <td>
+                  <a href="" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#delete_account_modal" data-id="{{this._id}}"> Xoa </a>
+                </td>
             </tr>
             {{else}}
             <tr>
@@ -28,3 +32,46 @@
         </tbody>
     </table>
 </div>
+
+{{!-- Confirm delete account --}}
+
+<div id="delete_account_modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">CHU Y !!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ban co chac chan muon xoa tai khoan nay?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-account" type="button" class="btn btn-danger">Xoa bo</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Delete form --}}
+<form name="delete-account-form" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var accountId
+    var deleteForm = document.forms['delete-account-form']
+    var btnDeleteAccount = document.getElementById('btn-delete-account')
+
+    $('#delete_account_modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      accountId = button.data('id')
+    })
+
+    btnDeleteAccount.onclick = function (){
+      deleteForm.action = 'account/' + accountId + '?_method=DELETE'
+      deleteForm.submit()
+    }
+
+  })
+
+</script>

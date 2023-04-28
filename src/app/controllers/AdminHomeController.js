@@ -1,7 +1,8 @@
 const { render } = require('node-sass')
 const { multipleToObject } = require('../../util/mongoose')
 const account=require('../models/accountdb')
-
+const book=require('../models/book')
+const Library = require('./Library')
 class AdminHomeController{
     index(req, res){
         res.render('adminhome', {
@@ -20,10 +21,26 @@ class AdminHomeController{
             .catch(next)
     }
 
-    bookManage(req, res){
-        res.render('bookManage', {
-            layout: 'admin'
-        })
+    destroy(req, res, next){
+        account.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    bookManage(req, res, next){
+        book.find({})
+            .then(books => {
+                res.render('bookManage', {
+                    layout: 'admin',
+                    books: multipleToObject(books)
+                })
+            })
+            .catch(next)
+    }
+    bookModify(req, res, next){
+        book.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next)
     }
     async bookModify(req, res, next){
         book.deleteOne({_id: req.params.id})

@@ -1,7 +1,10 @@
+const { listIndexes } = require('../models/book')
+const Library = require('./Library')
 
 class TrangChuController{
     async trangchu(req, res){
-        const Books = await Library.sortByType('Novel')
+        var type = req.query.type
+        const Books = await Library.sortByType(type)
         res.render('index', {
             layout: 'main', 
             Books: Books

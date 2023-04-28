@@ -7,19 +7,31 @@ class Library {
         Book.findOneAndUpdate({title: title}, {$set : {description : description}}, (err,doc) => {if (err) throw err})
     }
     static addBook = (title, author, publishYear, type = 'Novel' ) => {
-        const newBook = new Book({
-            title : title,
-            author: author,
-            publishYear: publishYear,
-            type : type,
-            available : 1,
-            quantity : 1,
-        })
-        newBook.save();
+        if (Book.find({title :title})!== undefined){
+        }
+        else {
+            const newBook = new Book({
+                title : title,
+                author: author,
+                publishYear: publishYear,
+                type : type,
+                available : 1,
+                quantity : 1,
+            })
+            newBook.save();
+        }
     }
 
-    static sortByType = (type) => {
-        return Book.find({type : type}).limit(15).then((book) => 
+    static sortByType = (atype) => {
+        if (!atype)
+        {
+            return Book.find({}).limit(12).then((book) => 
+            {
+                book = book.map(book => book.toObject())
+                return book
+            })
+        }
+        return Book.find({type : atype}).limit(12).then((book) => 
             {
                 book = book.map(book => book.toObject())
                 return book
