@@ -449,13 +449,23 @@
     background-size: contain;
 }
 .home-product-item__name{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--text-color);
     line-height: 1.8rem;
     margin: 10px;
+    
+    /* display: flex; */
+    height: 3.6rem;
+    overflow: hidden ;
     display: block;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    
+    /* display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
 }
 .home-product-item__price{
     display: flex;
