@@ -3,10 +3,10 @@ const router = express.Router()
 const Book = require ('../models/book')
 
 class Library {
-    static addDescription = (title, description) => {
+    addDescription = (title, description) => {
         Book.findOneAndUpdate({title: title}, {$set : {description : description}}, (err,doc) => {if (err) throw err})
     }
-    static addBook = (title, author, publishYear, type = 'Novel' ) => {
+    addBook = (title, author, publishYear, type = 'Novel' ) => {
         if (Book.find({title :title})!== undefined){
         }
         else {
@@ -21,8 +21,7 @@ class Library {
             newBook.save();
         }
     }
-
-    static sortByType = (atype) => {
+    sortByType = (atype) => {
         if (!atype)
         {
             return Book.find({}).limit(12).then((book) => 
@@ -37,7 +36,7 @@ class Library {
                 return book
             })
     }
-    static borrowBook = (title, username) => {
+    borrowBook = (title, username) => {
         const book = Book.findOne({title: title})
         if (book.info.available < 1)
             return "Unable to borrow"
@@ -48,7 +47,7 @@ class Library {
                 (err, doc) => {if (err) throw err}    
             )
     }
-    static returnBook = (title, username) => {
+    returnBook = (title, username) => {
         Book.findOneAndUpdate({title :title}, 
             {$inc : {available : 1}},
             {$pop : {borrowList : {name : username}}},
@@ -56,4 +55,5 @@ class Library {
         )
     }
 }
-module.exports=Library
+const library = new Library
+module.exports= library
