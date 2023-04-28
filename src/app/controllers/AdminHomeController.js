@@ -49,8 +49,17 @@ class AdminHomeController{
     }
 
     async addBook(req,res){
-        Library.addBook( req.query.title,  req.query.author,  req.query.publishYear, req.query.type)
-        res.redirect('/adminhome/book')
+        const Book = new book({
+            title : req.query.title, 
+            author:  req.query.author,  
+            publishYear : req.query.publishYear, 
+            type :req.query.type,
+            quantity : 1,
+            available :1
+        })
+        await Book.save().then(
+            res.redirect('/adminhome/book')
+        )
     }
 }
 
