@@ -2,7 +2,8 @@
     <div>
       <h3>Danh sach sach</h3>
     </div>
-
+    <!-- A button to open the popup form -->
+        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add"> Thêm sách</a>
     <table class="table mt-4">
         <thead>
             <tr>
@@ -45,12 +46,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"> Bạn có muống xóa</h5>
+        <h5 class="modal-title"> Bạn có muốn xóa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      </div>
-      <div class="modal-footer">
         <button id="btn-delete-book" type="button" class="btn btn-danger">Xóa bỏ</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
       </div>
@@ -58,8 +57,38 @@
   </div>
 </div>
 
-<form name="modifyBook" method="POST"></form>
-
+<!-- The form -->
+<div id="add" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title">
+              Thêm sách
+           </h5>
+         </div>  
+         <div class="modal-body">
+           <form action="/book" method="post" class="form">
+            <label for="title"><b>Tựa sách</b></label>
+            <input type="text" placeholder="Nhập tựa sách" name="title" required>
+            <label for="author"><b>Tác giả</b></label>
+            <input type="text" placeholder="Nhập tác giả" name="author" required>
+            <label for="publishYear"><b>Năm xuất bản</b></label>
+            <input type="number" placeholder="Nhập năm xuất bản" name="author">
+            <label for="type">Chọn loại sách:</label>
+              <select id="dropdown" name="type">
+                <option value="Novel">Tiểu thuyết</option>
+                <option value="Document">Tài liệu</option>
+                <option value="Megazine">Tạp chí</option>
+                <option value="Comic">Truyện tranh</option>
+              </select>
+          </form>
+        </div>
+        <div class ="modal-footer">
+           <button type="submit" class="btn btn-primary">Thêm sách</button>
+        </div>
+      </div>
+  </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
     var bookId
@@ -69,7 +98,9 @@
       var button = $(event.relatedTarget)
       bookId = button.data('id')
     })
-
+    $('#add').on('show.bs.modal', function (event){
+      var button = $(event.relatedTarget)
+    })
     btnDelete.onclick= function(){
         modifyForm.action = 'book/' + bookId + '?_method=DELETE'
         modifyForm.submit()
