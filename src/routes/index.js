@@ -12,7 +12,7 @@ function route(app){
     app.use('/signup', userSignupRouter)
 
     app.use('/home', userHomeRouter)
-
+    
     app.use('/adminhome', adminHomeRouter)
 }
 
