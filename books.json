@@ -1,0 +1,265 @@
+[{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a67"
+  },
+  "title": "Robisson Crusoe",
+  "author": "Daniel Defoe",
+  "publishYear": 1719,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a6a"
+  },
+  "title": "The Catcher in the Rye",
+  "author": "J.D. Salinger",
+  "publishYear": 1951,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a6b"
+  },
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "publishYear": 1925,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a6c"
+  },
+  "title": "1984",
+  "author": "George Orwell",
+  "publishYear": 1949,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a6d"
+  },
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "publishYear": 1813,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a68"
+  },
+  "title": "Frankenstein",
+  "author": "Marry Shelley",
+  "publishYear": 1818,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a69"
+  },
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "publishYear": 1960,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a70"
+  },
+  "title": "Wuthering Heights",
+  "author": "Emily Bronte",
+  "publishYear": 1847,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a71"
+  },
+  "title": "The Picture of Dorian Gray",
+  "author": "Oscar Wilde",
+  "publishYear": 1890,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a72"
+  },
+  "title": "Jane Eyre",
+  "author": "Charlotte Bronte",
+  "publishYear": 1847,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a73"
+  },
+  "title": "The Lord of the Rings",
+  "author": "J.R.R. Tolkien",
+  "publishYear": 1955,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a74"
+  },
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishYear": 1937,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a75"
+  },
+  "title": "Animal Farm",
+  "author": "George Orwell",
+  "publishYear": 1945,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644a996fe1abc2bfa14d0a6e"
+  },
+  "title": "One Hundred Years of Solitude",
+  "author": "Gabriel Garcia Marquez",
+  "publishYear": 1967,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b5234277497d0c1666efd"
+  },
+  "title": "White Fang",
+  "author": "Jack London",
+  "publishYear": 1906,
+  "type": "Novel",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b61afb2a0628eb4df79ff"
+  },
+  "title": "Hồ Chí Minh",
+  "author": "NXB Chính trị",
+  "publishYear": 1989,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b622b1218542a7f8ef325"
+  },
+  "title": "Giải tích 1",
+  "author": "HCMUT",
+  "publishYear": 2017,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b627c1218542a7f8ef32b"
+  },
+  "title": "Vật lý 1",
+  "author": "HCMUT",
+  "publishYear": 2015,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b63021218542a7f8ef32e"
+  },
+  "title": "Vật Lý 2",
+  "author": "HCMUT",
+  "publishYear": 2017,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b63471218542a7f8ef331"
+  },
+  "title": "Giáo trình Kinh tế Chính trị Mác - Lê nin",
+  "author": "NXB Chính trị",
+  "publishYear": 2019,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b657d1218542a7f8ef356"
+  },
+  "title": "Giải tích 2",
+  "author": "HCMUT",
+  "publishYear": 2017,
+  "type": "Document",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644bce364c85d808a8829174"
+  },
+  "title": "Naruto",
+  "author": "岸本 斉史",
+  "publishYear": 2003,
+  "type": "Comic",
+  "quantity": 1,
+  "available": 1,
+  "borrowList": [],
+  "__v": 0
+}]

@@ -8,7 +8,12 @@ class UserHomeController{
         if (type === undefined)
             type='Novel'
         const Books = await Library.sortByType(type)
-        res.render('home', {query, Books : Books})
+        if (req.session.name){
+            res.render('home', {query, Books : Books, name: req.session.name})
+        }
+        else {
+            res.render('home', {query, Books : Books})
+        }
     }
 }
 

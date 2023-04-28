@@ -1,5 +1,5 @@
-const collection=require('../models/accountdb')
-
+const account = require('../models/accountdb')
+const bcrypt = require('bcrypt')
 class UserSignupController{
     signup(req, res){
         res.render('signup', {
@@ -12,27 +12,22 @@ class UserSignupController{
             email:req.body.email,
             password: req.body.password,
             passwordCheck: req.body.passwordCheck,
-            is_admin: 0
             }
-    
-        const checkNameExist = await collection.findOne({name:req.body.name})
+           
+        const checkNameExist = await account.findOne({name:req.body.name})
         if(checkNameExist!=null){
             res.render('signup', {
                 message:"Username is not allowed",
                 layout: 'LoginSignup'
-            })
+            });
         }
         else{
             if(data.password===data.passwordCheck){
-                if(req.body.key === '-999'){
-                    data.is_admin = true
-                    await collection.insertMany([data])
-                    res.redirect('login')
-                }
-                else{
-                    await collection.insertMany([data])
-                    res.redirect('login')
-                }
+                const hashedPassword = await bcrypt.hash(data.password, 10);
+                data.password = hashedPassword
+                const Account = new account(data)
+                Account.save()
+                res.redirect('login')
             }
             else{
                 res.render('signup', {
@@ -42,6 +37,10 @@ class UserSignupController{
             }
         }
     }
+
+
+
+
 }
 
 module.exports = new UserSignupController

@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const session = require('express-session')
 const morgan = require('morgan')
 const methodOverride=require('method-override')
 const exphbs = require('express-handlebars').engine
@@ -18,6 +19,15 @@ app.use(methodOverride('_method'))
 
 // HTTP logger
 app.use(morgan('combined'))
+
+// Create session
+
+app.use(
+  session({
+      secret: 'CryingWithWebServer',
+      resave: false,
+      saveUninitialized: false,
+}));
 
 //Template engine
 app.engine('hbs', exphbs({

@@ -21,8 +21,8 @@ class adminLibrary extends Library {
             if (err) throw err
         }) 
     }
-    static getBorrowingList = (title) => {
-        return Book.findOne({title: title}).then($borrowList)
+    getBorrowingList = (id) => {
+        return Book.findOne({_id: id}).then((book) => {return book.borrowList})
     }
     static addBookInStorage = (title, quantity) => {
         Book.findOneAndUpdate({title: title}, 
