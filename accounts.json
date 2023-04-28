@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "644a7ede8baf753e09fc6805"
+  },
+  "name": "tuelam",
+  "email": "tuelam@gmail.com",
+  "password": "123",
+  "is_admin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644ab0d54b13d8eae1bb0e30"
+  },
+  "name": "Cyese",
+  "email": "123@gmail.com",
+  "password": "123",
+  "is_admin": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644b63fe1218542a7f8ef343"
+  },
+  "name": "nguoibian",
+  "email": "nba@gmail.com",
+  "password": "123",
+  "is_admin": false,
+  "__v": 0
+}]
