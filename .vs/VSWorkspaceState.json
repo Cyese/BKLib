@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SQL",
-    "\\SQL\\SQL Server Scripts1"
+    "\\src",
+    "\\src\\database"
   ],
-  "SelectedNode": "\\SQL\\SQL Server Scripts1\\User.sql",
+  "SelectedNode": "\\src\\database\\createData.sql",
   "PreviewInSolutionExplorer": false
 }

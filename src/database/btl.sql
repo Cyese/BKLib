@@ -1,3 +1,5 @@
+x
+-- Ignore this
 CREATE DATABASE Assignment;
 use Assignment;
 
@@ -11,16 +13,16 @@ CREATE TABLE [User]
 	bdate		DATE,
 	address	VARCHAR(30),
 	email VARCHAR(50) CONSTRAINT ck_valid_mail CHECK (email LIKE '%_@__%.__%'),
-    is_sender BIT,
-    is_borrower BIT
+    is_sender BIT DEFAULT 0,
+    is_borrower BIT DEFAULT 0
 );
 
 --  số điện thoại của người dùng
 CREATE TABLE Phone_number 
 (
     id_user INT,
-   phone_number VARCHAR(15) CONSTRAINT ck_numeric_phone CHECK (phone_number NOT LIKE '%[^0-9]%'),
-   PRIMARY KEY (id_user, phone_number)
+    phone_number VARCHAR(15) CONSTRAINT ck_numeric_phone CHECK (phone_number NOT LIKE '%[^0-9]%'),
+    PRIMARY KEY (id_user, phone_number)
 )
 
 -- thủ thư

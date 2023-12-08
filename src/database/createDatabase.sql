@@ -1,9 +1,6 @@
-DROP all;
-
-
-CREATE DATABASE Assignment;
-use Assignment;
-
+-- Ignore this
+-- CREATE DATABASE Assignment;
+-- use Assignment;
 -- người dùng
 CREATE TABLE [User]
 (	
@@ -14,19 +11,19 @@ CREATE TABLE [User]
 	bdate		DATE,
 	address	VARCHAR(30),
 	email VARCHAR(50) CONSTRAINT ck_valid_mail CHECK (email LIKE '%_@__%.__%'),
-    is_sender BIT,
-    is_borrower BIT
+    is_sender BIT DEFAULT 0,
+    is_borrower BIT DEFAULT 0
 );
 
 --  số điện thoại của người dùng
 CREATE TABLE Phone_number 
 (
     id_user INT,
-   phone_number VARCHAR(15) CONSTRAINT ck_numeric_phone CHECK (phone_number NOT LIKE '%[^0-9]%'),
-   PRIMARY KEY (id_user, phone_number)
+    phone_number VARCHAR(15) CONSTRAINT ck_numeric_phone CHECK (phone_number NOT LIKE '%[^0-9]%'),
+    PRIMARY KEY (id_user, phone_number)
 )
 
--- thủ thư
+-- thủ thư checked
 CREATE TABLE Librarian 
 (
     id INT IDENTITY(1,1) PRIMARY KEY,
@@ -37,7 +34,7 @@ CREATE TABLE Librarian
     sex CHAR(1) CHECK (sex IN ('M', 'F'))
 )
 
--- số điện thoại của thủ thư
+-- số điện thoại của thủ thư checked
 CREATE TABLE Phone_number_librarian 
 (
     id_librarian INT,
@@ -45,12 +42,12 @@ CREATE TABLE Phone_number_librarian
     PRIMARY KEY (id_librarian, phone_number)
 )
 
--- chi nhánh
+-- chi nhánh checked
 CREATE TABLE Branch 
 (
     name VARCHAR(15)	NOT NULL,
 	id		INT IDENTITY(1,1)		PRIMARY KEY,
-	address	VARCHAR(30),
+	address	VARCHAR(100),
     id_librarian INT
 )
 
@@ -70,9 +67,9 @@ CREATE TABLE Book_title
 (
     id	INT IDENTITY(1,1) PRIMARY KEY ,
     author	VARCHAR(40) NOT NULL,
-    total_book INT,
+    total_book INT DEFAULT 0,
     book_title_name VARCHAR(40) NOT NULL,
-    min_age INT CHECK (min_age > 0),
+    min_age INT CHECK (min_age > 0) DEFAULT 13,
 )
 
 -- danh mục
@@ -97,7 +94,6 @@ CREATE TABLE Point_payment
     point INT NOT NULL,
     date DATE,
     PRIMARY KEY (id,id_user),
-
 )
 
 -- mượn sách
@@ -118,7 +114,7 @@ CREATE TABLE Return_book
     id_book INT,
     id_branch INT,
     id_borrow_receipt INT,
-    point_penalty INT,
+    point_penalty INT DEFAULT 0,
     date_return DATE,
     state_return VARCHAR(15),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
@@ -177,7 +173,6 @@ CREATE TABLE Rep_feedback
     id_feedback INT,
     
 )
-
 -- tham chiếu khóa ngoại giữa sdt và user
 ALTER  TABLE Phone_number ADD CONSTRAINT fk_phn_user_id	
 FOREIGN KEY (id_user) REFERENCES [User] (id)
