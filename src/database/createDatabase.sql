@@ -14,7 +14,7 @@ CREATE TABLE [User]
     is_sender BIT DEFAULT 0,
     is_borrower BIT DEFAULT 0
 );
-
+    
 --  số điện thoại của người dùng
 CREATE TABLE Phone_number 
 (
@@ -175,7 +175,140 @@ CREATE TABLE Rep_feedback
 )
 -- tham chiếu khóa ngoại giữa sdt và user
 ALTER  TABLE Phone_number ADD CONSTRAINT fk_phn_user_id	
-FOREIGN KEY (id_user) REFERENCES [User] (id)
+FOREIG INTO Book_title (author, book_title_name)
+VALUES ('Stieg Larsson', 'The Girl with the Dragon Tattoo');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Gillian Flynn', 'Gone Girl');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Dan Brown', 'The Da Vinci Code');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Thomas Harris', 'The Silence of the Lambs');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Paula Hawkins', 'The Girl on the Train');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Arthur Conan Doyle', 'The Hound of the Baskervilles');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Tana French', 'In the Woods');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Liane Moriarty', 'Big Little Lies');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Carlos Ruiz Zafón', 'The Shadow of the Wind');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Dennis Lehane', 'Gone Baby Gone');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Agatha Christie', 'Murder on the Orient Express');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Alexander McCall Smith', 'The No. 1 Ladies'' Detective Agency');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Robert Galbraith', 'The Cuckoo''s Calling');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Michael Connelly', 'The Poet');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Dashiell Hammett', 'The Maltese Falcon');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Walter Isaacson', 'Steve Jobs');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Anne Frank', 'The Diary of a Young Girl');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Laura Hillenbrand', 'Unbroken');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Rebecca Skloot', 'The Immortal Life of Henrietta Lacks');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Jeannette Walls', 'The Glass Castle');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Stephen R. Covey', 'The 7 Habits of Highly Effective People');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Dale Carnegie', 'How to Win Friends and Influence People');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('James Clear', 'Atomic Habits');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Eckhart Tolle', 'The Power of Now');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Jen Sincero', 'You Are a Badass');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Jon Krakauer', 'Into the Wild');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Elizabeth Gilbert', 'Eat, Pray, Love');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Bill Bryson', 'In a Sunburned Country');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Bill Bryson', 'A Walk in the Woods');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Cheryl Strayed', 'Wild');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('J.K. Rowling', 'Harry Potter and the Philosopher''s Stone');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Eric Carle', 'The Very Hungry Caterpillar');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Maurice Sendak', 'Where the Wild Things Are');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Roald Dahl', 'Matilda');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('E.B. White', 'Charlotte''s Web');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Various authors', 'The Bible');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Various authors', 'The Quran');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Various authors', 'Bhagavad Gita');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Laozi', 'Tao Te Ching');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Various authors', 'The Book of Mormon');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Stephen Hawking', 'A Brief History of Time');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Yuval Noah Harari', 'A Brief History of Humankind');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Richard Dawkins', 'The Selfish Gene');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Carl Sagan', 'Cosmos');
+
+INSERT INTO Book_title (author, book_title_name)
+VALUES ('Brian Greene', 'The Elegant Universe');N KEY (id_user) REFERENCES [User] (id)
 ON DELETE CASCADE;
 
 -- tham chiếu khóa ngoại giữa thủ thư và chi nhánh

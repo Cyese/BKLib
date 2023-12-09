@@ -1,8 +1,9 @@
 # Data format : Librarian : (fname, minit, lname, email,sex)
 import random
+from datetime import datetime, timedelta, date
 fname = ['Nguyen', 'Tran', 'Pham', 'Lam', 'Dang', 'Le', 'Vu', 'Phan', 'Do', 'Bui', 'Hoang', 'Ngo', 'Duong', 'Ly', 'Phung', 'Ho','Dinh']
 minit = ['B', 'C', 'D', 'H', 'G', 'K', 'L', 'M', 'N', 'P', 'Q', 'S', 'T', 'V','Y', '']
-lname = ['Anh', 'Bao', 'Chau', 'Dung', 'Giang', 'Hai', 'Hoa', 'Huong', 'Huyen', 'Khanh', 'Lan', 'Linh', 'Loan', 'Mai', 'Minh', 'My', 'Nga', 'Nhan', 'Nhi', 'Nhung', 'Phuong', 'Quynh', 'Thao', 'Thuy', 'Tien', 'Trang', 'Trinh', 'Truc', 'Trung', 'Tuyet', 'Uyen', 'Van', 'Yen', '']
+lname = ['Anh', 'Bao', 'Chau', 'Dung', 'Giang', 'Hai', 'Hoa', 'Huong', 'Huyen', 'Khanh', 'Lan', 'Linh', 'Loan', 'Mai', 'Minh', 'My', 'Nga', 'Nhan', 'Nhi', 'Nhung', 'Phuong', 'Quynh', 'Thao', 'Thuy', 'Tien', 'Trang', 'Trinh', 'Truc', 'Trung', 'Tuyet', 'Uyen', 'Van', 'Yen']
 sex = ['M', 'F']
 domain = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'hcmut.edu.vn', 'microsoft.com']
 
@@ -118,3 +119,57 @@ def mapTitleGenre():
         print(f"({i+1}, '{genre[i//5]}'),")
 
 # mapTitleGenre()
+
+
+	
+def gen_birthdate():
+	start_date = datetime(1980, 1, 1)
+	end_date = datetime.now() - timedelta(days=365*5)  # Assuming minimum age of 18
+
+	birthdate = start_date + random.random() * (end_date - start_date)
+	birthdate_str = birthdate.strftime("%Y-%m-%d")
+	return birthdate, birthdate_str
+	
+def genUserList():
+	ratio = [0, 0 ,0, 0]    
+	def genUser():
+		# Format (fname, minit, lname, bdate, address, email)
+		firstname, middle, lastname= random.choice(fname), random.choice(minit), random.choice(lname)
+		birthdate, str = gen_birthdate()
+		age = calculate_age(birthdate)
+		# print(f"{str}, {age}")
+		
+		if age < 12:
+			ratio[0] += 1
+		elif age < 18:
+			ratio[1] += 1
+		elif age < 30:
+			ratio[2] += 1
+		else:
+			ratio[3] += 1
+		email = gen_email(lastname, '', firstname)
+		return (firstname, middle, lastname, str, email)
+	with open('user.txt', 'w+') as file:
+		data = [f"{genUser()}," for _ in range(25)]
+		file.writelines('\n'.join(data))
+
+	sumratio = sum(ratio)
+	for i in range(len(ratio)):
+		ratio[i] /= sumratio
+	print(ratio)
+
+def genUserPhone():
+	for i in range(25):
+		print(f"({i+1}, '{phone_number()}'),")
+		for _ in range(random.randint(0,1)): print(f"({i+1}, '{phone_number()}'),") 
+
+
+	
+
+
+def calculate_age(birthdate):
+	today = date.today()
+	age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+	return age
+
+genUserPhone()

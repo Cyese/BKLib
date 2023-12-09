@@ -17,3 +17,10 @@ GO
 use Assignment;
 SELECT * 
 FROM Belongto_category;
+
+
+use Assignment;
+SELECT * 
+FROM [User]
+JOIN Phone_number
+ON [User].id = Phone_number.id_user;
