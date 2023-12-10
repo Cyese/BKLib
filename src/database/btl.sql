@@ -120,7 +120,6 @@ CREATE TABLE Return_book
     id_branch INT,
     id_borrow_receipt INT,
     point_penalty INT,
-    date_return DATE,
     state_return VARCHAR(15) CHECK (state_return IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
