@@ -14,7 +14,8 @@ CREATE TABLE [User]
 	address	VARCHAR(30),
 	email VARCHAR(50) CONSTRAINT ck_valid_mail CHECK (email LIKE '%_@__%.__%'),
     is_sender BIT DEFAULT 0,
-    is_borrower BIT DEFAULT 0
+    is_borrower BIT DEFAULT 0,
+    point INT DEFAULT 0
 );
 
 --  số điện thoại của người dùng
