@@ -107,6 +107,7 @@ CREATE TABLE Borrow_book
     id_branch INT,
     id_borrow_receipt INT,
     point_lost INT CHECK (point_lost > 0),
+    state_borrow VARCHAR(15) CHECK (state_borrow IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
 
@@ -119,7 +120,7 @@ CREATE TABLE Return_book
     id_borrow_receipt INT,
     point_penalty INT,
     date_return DATE,
-    state_return VARCHAR(15),
+    state_return VARCHAR(15) CHECK (state_return IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
 
