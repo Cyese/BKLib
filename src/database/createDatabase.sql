@@ -175,7 +175,10 @@ CREATE TABLE Rep_feedback
 )
 -- tham chiếu khóa ngoại giữa sdt và user
 ALTER  TABLE Phone_number ADD CONSTRAINT fk_phn_user_id	
-FOREIG INTO Book_title (author, book_title_name)
+FOREIGN KEY (id_user) REFERENCES [User] (id)
+ON DELETE CASCADE;
+
+INSERT INTO Book_title (author, book_title_name)
 VALUES ('Stieg Larsson', 'The Girl with the Dragon Tattoo');
 
 INSERT INTO Book_title (author, book_title_name)
@@ -308,8 +311,7 @@ INSERT INTO Book_title (author, book_title_name)
 VALUES ('Carl Sagan', 'Cosmos');
 
 INSERT INTO Book_title (author, book_title_name)
-VALUES ('Brian Greene', 'The Elegant Universe');N KEY (id_user) REFERENCES [User] (id)
-ON DELETE CASCADE;
+VALUES ('Brian Greene', 'The Elegant Universe');
 
 -- tham chiếu khóa ngoại giữa thủ thư và chi nhánh
 ALTER  TABLE Branch ADD CONSTRAINT fk_bra_lib_id	
