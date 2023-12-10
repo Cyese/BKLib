@@ -131,8 +131,6 @@ CREATE TABLE Send_book
     id_branch INT,
     id_send_receipt INT,
     point_bonus INT,
-    date_return DATE,
-    state_return VARCHAR(15),
     PRIMARY KEY (id_sender,id_book,id_branch,id_send_receipt)
 )
 
@@ -166,13 +164,14 @@ CREATE TABLE Feedback
     id INT IDENTITY(1,1) PRIMARY KEY ,
     description VARCHAR(255),
     id_book_title INT NOT NULL ,
+    date_fb DATE NOT NULL,
     id_user INT NOT NULL,
 )
 
 -- phản hồi feedback
 CREATE TABLE Rep_feedback
 (
-    id INT IDENTITY(1,1) PRIMARY KEY ,
+    id INT PRIMARY KEY ,
     id_feedback INT,
     
 )
@@ -279,4 +278,8 @@ FOREIGN KEY (id_book_title) REFERENCES Book_title (id)
 -- tham chiếu giữa bảng feedback và bảng rep_feedback
 ALTER  TABLE Rep_feedback ADD 
 CONSTRAINT fk_ref_fee_id	
-FOREIGN KEY (id_feedback) REFERENCES Feedback (id);
+FOREIGN KEY (id_feedback) REFERENCES Feedback (id),
+CONSTRAINT fk_ref_fee_idprimary	
+FOREIGN KEY (id) REFERENCES Feedback (id)
+;
+
