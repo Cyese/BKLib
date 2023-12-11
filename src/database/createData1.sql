@@ -83,7 +83,7 @@ INSERT INTO Category (name)
 VALUES ('Tieu su');
 
 INSERT INTO Category (name)
-VALUES ('Tu giup');
+VALUES ('Self-help');
 
 INSERT INTO Category (name)
 VALUES ('Suc khoe');
@@ -285,21 +285,6 @@ INSERT INTO Book_title (author, book_title_name, min_age)
 VALUES ('E.B. White', 'Charlotte''s Web', 6);
 
 INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Bible');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Quran');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'Bhagavad Gita');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Laozi', 'Tao Te Ching');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Book of Mormon');
-
-INSERT INTO Book_title (author, book_title_name)
 VALUES ('Stephen Hawking', 'A Brief History of Time');
 
 INSERT INTO Book_title (author, book_title_name)
@@ -313,6 +298,7 @@ VALUES ('Carl Sagan', 'Cosmos');
 
 INSERT INTO Book_title (author, book_title_name)
 VALUES ('Brian Greene', 'The Elegant Universe');
+
 
 
 -- ==== Belongto_category ====
@@ -438,25 +424,15 @@ VALUES (59, 'Tre em');
 INSERT INTO Belongto_category (id_book, name_category)
 VALUES (60, 'Tre em');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (61, 'Ton giao');
+VALUES (61, 'Khoa hoc');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (62, 'Ton giao');
+VALUES (62, 'Khoa hoc');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (63, 'Ton giao');
+VALUES (63, 'Khoa hoc');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (64, 'Ton giao');
+VALUES (64, 'Khoa hoc');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (65, 'Ton giao');
-INSERT INTO Belongto_category (id_book, name_category)
-VALUES (66, 'Khoa hoc');
-INSERT INTO Belongto_category (id_book, name_category)
-VALUES (67, 'Khoa hoc');
-INSERT INTO Belongto_category (id_book, name_category)
-VALUES (68, 'Khoa hoc');
-INSERT INTO Belongto_category (id_book, name_category)
-VALUES (69, 'Khoa hoc');
-INSERT INTO Belongto_category (id_book, name_category)
-VALUES (70, 'Khoa hoc');
+VALUES (65, 'Khoa hoc');
 
 -- ==== User ====
 --use Assignment;

@@ -1,6 +1,8 @@
 -- Ignore this
-CREATE DATABASE Assignment;
+-- CREATE DATABASE Assignment;
+-- GO
 use Assignment;
+-- GO
 
 -- người dùng
 CREATE TABLE [User]
@@ -69,7 +71,7 @@ CREATE TABLE Book_title
 (
     id	INT IDENTITY(1,1) PRIMARY KEY ,
     author	VARCHAR(40) NOT NULL,
-    total_book INT,
+    total_book INT DEFAULT 0,
     book_title_name VARCHAR(40) NOT NULL,
     min_age INT CHECK (min_age > 0) DEFAULT 13,
 )
