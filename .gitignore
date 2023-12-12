@@ -1,4 +1,7 @@
 **/.vs/
 **/node_modules/
-/.vs
-/node_modules
+# Node.js
+node_modules/
+
+# Visual Studio
+.vs/
