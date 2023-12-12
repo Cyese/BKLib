@@ -1,7 +1,7 @@
 -- Ignore this
 -- CREATE DATABASE Assignment;
 -- GO
-use Assignment;
+--use Assignment;
 -- GO
 
 -- người dùng
