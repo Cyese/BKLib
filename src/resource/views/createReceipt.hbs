@@ -1,0 +1,79 @@
+<div class="form-box mx-auto col-10 col-md-8 col-lg-6">
+    <!-- Your form container -->  
+    <div id="form-container"></div>
+
+    <script id="form-template" type="text/x-handlebars-template">
+        <form class="form" id="myForm">
+            <label for="choice">Loại biên nhận:</label>
+            <select id="choice" name="choice">
+                <option value="1">Biên nhận nhận sách</option>
+                <option value="2">Biên nhận mượn sách</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </script>
+
+    <script id="form1-template" type="text/x-handlebars-template">
+        <form>
+            <label for="state">Tình trạng:</label>
+            <input type="text" id="state" name="state" value="{{state}}" required>
+			<br>
+            <label for="date_exported">Ngày in biên nhận:</label>
+            <input type="date" id="date_exported" name="date_exported" value="{{date_exported}}" required>
+            <br>
+            <label for="id_librarian">Mã số thủ thư in biên nhận:</label>
+            <input type="text" id="id_librarian" name="id_librarian" value="{{id_librarian}}" required>
+            <br>
+            <button type="submit">Submit Form 1</button>
+        </form>
+    </script>
+
+    <script id="form2-template" type="text/x-handlebars-template">
+        <form>
+            <label for="state">Tình trạng:</label>
+            <input type="text" id="state" name="state" value="{{state}}" required>
+			<br>
+            <label for="date_exported">Ngày in biên nhận:</label>
+            <input type="date" id="date_exported" name="date_exported" value="{{date_exported}}" required>
+            <br>
+            <label for="id_librarian">Mã số thủ thư in biên nhận:</label>
+            <input type="text" id="id_librarian" name="id_librarian" value="{{id_librarian}}" required>
+            <br>
+            <label for="date_exported">Ngày trả sách:</label>
+            <input type="date" id="date_expire" name="date_expire" value="{{date_expire}}" required>
+            <br>
+            <button type="submit">Submit Form 1</button>
+        </form>
+    </script>
+
+    <script>
+        // Your data
+        var formData = {
+            choice: "1", // Default choice
+        };
+
+        // Compile the Handlebars templates
+        var formTemplate = Handlebars.compile(document.getElementById('form-template').innerHTML);
+        var form1Template = Handlebars.compile(document.getElementById('form1-template').innerHTML);
+        var form2Template = Handlebars.compile(document.getElementById('form2-template').innerHTML);
+
+        // Render the form template
+        document.getElementById('form-container').innerHTML = formTemplate(formData);
+
+        // Add an event listener to handle form submission
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Access form data
+            formData.choice = document.getElementById('choice').value;
+
+            // Render the corresponding form based on the user's choice
+            if (formData.choice === "1") {
+                document.getElementById('form-container').innerHTML = form1Template({ state: "", date_exported: "", id_librarian:"" });
+            } else if (formData.choice === "2") {
+                document.getElementById('form-container').innerHTML = form2Template({ state: "", date_exported: "", id_librarian:"", date_expire:"" });
+            }
+        });
+    </script>
+</div>
