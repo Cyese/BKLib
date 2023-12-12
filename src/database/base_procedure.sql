@@ -6,9 +6,9 @@ CREATE OR ALTER PROCEDURE SendBook
     @BranchId INT
 AS
 BEGIN
-    IF @publish IS NOT NULL AND @publish < 0
+    IF @publish IS NOT NULL AND @publish < 0 AND @publish > YEAR(GETDATE())
     BEGIN
-        RAISERROR('Năm xuất bản không được nhỏ hơn 0!', 5, 1);
+        RAISERROR('Năm xuất bản không hợp lệ!', 5, 1);
         RETURN;
     END
     -- Check if the book title exists
@@ -64,6 +64,16 @@ CREATE OR ALTER PROCEDURE DeleteBook
 	@id_branch INT
 AS 
 BEGIN
+    DECLARE @BookID INT
+    SELECT @BookID = id FROM Book WHERE id = @id AND id_branch = @id_branch
+    
+    -- If the book title does not exist, create a new record
+    IF @BookID IS NULL
+    BEGIN
+        RAISERROR('Quyển sách đó không tồn tại trong cơ sở dữ liệu!', 16, 1);
+        RETURN;
+    END
+
 	DELETE FROM Book
 	WHERE id = @id AND @id_branch = @id_branch
 	---update total book in book_title
