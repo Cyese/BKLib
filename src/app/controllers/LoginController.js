@@ -1,4 +1,4 @@
-const collection=require('../models/accountdb')
+const collection=require('../models/old/accountdb')
 const bcrypt = require('bcrypt')
 class UserLoginController{
     login(req, res){

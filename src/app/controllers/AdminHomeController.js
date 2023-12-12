@@ -1,7 +1,7 @@
 const { render } = require('node-sass')
 const { multipleToObject } = require('../../util/mongoose')
-const account=require('../models/accountdb')
-const book=require('../models/book')
+const account=require('../models/old/accountdb')
+const book=require('../models/old/book')
 const Library = require('./Library')
 class AdminHomeController{
     index(req, res){
