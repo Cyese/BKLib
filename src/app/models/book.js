@@ -1,25 +1,19 @@
-const mongoose = require('mongoose'), Schema = mongoose.Schema;
+const {poolPromise, sql} = require('../config/database');
 
-// mongoose.connect("mongodb://127.0.0.1:27017/Library");
+class Book {
+    async loadByCatergory(Catergory) {
+        try {
+            const queryString = 'SELECT author, total_book, book_title_name FROM Book_title b JOIN (SELECT * FROM Belongto_category WHERE name_category = @Catergory) bl ON b.id = bl.id_book';
+            const pool = await poolPromise;
+            const result = await pool.request()
+                .input('Catergory', sql.NVarChar, Catergory)
+                .query(queryString);
+            console.log(result.recordset);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
-const BookSchema = new Schema({
-    title : 
-        { type : String,require : true},
-    author : 
-        { type : String, require : true},
-    publishYear : Number,
-    description : String,
-    type : {
-        type: String,
-        enum: ['Novel', 'Document', 'Megazine', 'Comic']
-    },
-    quantity : Number,
-    available : Number,
-    borrowList : 
-        [{ username : String,dateBorrow : Date}]
-})
-
-const Book = mongoose.model('Book', BookSchema)
-
-
-module.exports=Book
+module.exports = new Book;

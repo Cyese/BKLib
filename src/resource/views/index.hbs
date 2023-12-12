@@ -69,28 +69,6 @@
               </ul>
             </div>
           </div>
-          <!-- Cac chuc nang co ban -->
-          {{!-- <div class="col3">
-            <div class="header__person">
-              <ul class="Person__list">
-                <!-- Thao tac dang nhap -->
-                <li class="Person-icon__Person">
-                  <!-- <button class="btn"><i class="fa fa-home"></i></button> -->
-                  <button onclick="document.getElementById('id01').style.display='flex'" ,
-                    class="Person-icon__Person-btn">
-                    <i class="icon-img fa-solid fa-person"></i>
-                  </button>
-                  <!-- <i class="fa-solid fa-person"></i> -->
-                </li>
-                <!-- Kiem tra gio hang -->
-                <li class="Person-icon__Shopping">
-                  <button class="Person-icon__Person-btn">
-                    <i class="icon-img fa-solid fa-cart-shopping"></i>
-                  </button>
-                  <!-- <i class="fa-solid fa-cart-shopping"></i> -->
-                </li>
-              </ul>
-            </div> --}}
           </div>
         </div>
       </div>
@@ -300,7 +278,7 @@
               </h3>
               <ul class="category-list">
                 <li class="category-item">
-                  <button class="btn" id="btnClick1" data-query ="Novel" >Tiểu thuyết</button>
+                  <button class="btn" id="btnClick1" onclick="getBookTitleList('Khoa hoc')" >Khoa học</button>
                 </li>
                 <li class="category-item">
                   <button class="btn" id="btnClick2" data-query="Document" >Tài liệu</button>
@@ -315,26 +293,15 @@
             </nav>
           </div>
         <script>
-          const button1 = document.getElementById("btnClick1")
-          button1.addEventListener('click', () => {
-              const data = button1.dataset.query
-              window.location.href = "/?type=" + data
-          })
-          const button2 = document.getElementById("btnClick2")
-          button2.addEventListener('click', () => {
-              const data = button2.dataset.query
-              window.location.href = "/?type=" + data
-          })
-          const button3 = document.getElementById("btnClick3")
-          button3.addEventListener('click', () => {
-              const data = button3.dataset.query
-              window.location.href = "/?type=" + data
-          })
-          const button4 = document.getElementById("btnClick4")
-          button4.addEventListener('click', () => {
-              const data = button4.dataset.query
-              window.location.href = "/?type=" + data
-          })
+          function getBookTitleList(category){
+            fetch('/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ category: category })
+            })
+          }
         </script>
           <div class="grid__column-10">
             <div class="home-filter">
@@ -353,16 +320,16 @@
                           <div class="card" style="width: 15rem">
                           {{!-- <img src="..." class="card-img-top" alt="..."> --}}
                             <div class="card-body">
-                              <h5 class="card-title fs-3"></h5><strong>{{this.title}}</strong></h5>
+                              <h5 class="card-title fs-3"></h5><strong>{{this.book_title_name}}</strong></h5>
                             </div>
                             <div class="card-body">
                                 <p class="card-text fs-6 lh-1"><i>Author: {{this.author}}</i></p>
-                                <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p>
-                                <p class="card-text fs-6 lh-1">Availabe:{{this.available}}</p>
+                                {{!-- <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p> --}}
+                                <p class="card-text fs-6 lh-1">Availabe: {{this.total_book}}</p>
                             </div>
-                            <div class="card-footer">
+                            {{!-- <div class="card-footer">
                               <button class="btn btn-primary" id = "bButton", data-query="{title : {{this.title}} }">Borrow</button>
-                            </div>
+                            </div> --}}
                       </div>
                     </span>
                   {{/each}}
@@ -383,53 +350,6 @@
       </div>
     </div>
   </div>
-
-  {{!-- <footer class="footer">
-    <div class="grid">
-      <div class="grid__row">
-        <div class="grid__column-6">
-          <h3 class="footer__heading">
-            Thư viện Trường Đại học Bách Khoa Tp.Hồ Chí Minh
-          </h3>
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <i class="fa-sharp fa-solid fa-location-dot"></i>
-              268 Lý Thường Kiệt, P.14, Q.10, Tp.HCM
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-phone"></i>
-              (84.8) 38647256 ext. 5419, 5420
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-envelope"></i>
-              thuvien@hcmut.edu.vn
-            </li>
-          </ul>
-        </div>
-        <div class="grid__column-6">
-          <h3 class="footer__heading">Thông tin liên lạc</h3>
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <i class="fa-solid fa-people-group"></i>
-              Nhóm xxxxx
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-user"></i>
-              Lâm Nguyễn Quang Tuệ
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-id-card"></i>
-              MSSV 2112592
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-envelope"></i>
-              tue.lamkhmtk21@hcmut.edu.vn
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer> --}}
   </div>
   <!-- bootstrao -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

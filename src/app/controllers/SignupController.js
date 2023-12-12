@@ -1,4 +1,4 @@
-const account = require('../models/accountdb')
+const account = require('../models/old/accountdb')
 const bcrypt = require('bcrypt')
 class UserSignupController{
     signup(req, res){
