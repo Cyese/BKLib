@@ -13,7 +13,7 @@ BEGIN
     INSERT INTO @Result
     SELECT TOP(@nth) bt.id, bt.book_title_name, COUNT(f.id) FROM Book_title bt 
     JOIN Feedback f ON bt.id = f.id_book_title
-    WHERE f.date_fb BETWEEN @date_start AND @date_end
+    WHERE f.date_fb >= @date_start AND f.date_fb <= @date_end
     GROUP BY bt.id, bt.book_title_name
     ORDER BY COUNT(f.id) DESC;
 
@@ -26,5 +26,4 @@ BEGIN
     RETURN
 END
 
--- SELECT * FROM getBook_Top_nth_Feedback( 10, '11/11/2023' , '1/1/2024'  )
--- SELECT * FROM getBook_Top_nth_Feedback( 4, '1/11/2023' , '30/11/2024'  )
+-- SELECT * FROM getBook_Top_nth_Feedback( 4, '2023-11-01' , '2023-11-30'  )
