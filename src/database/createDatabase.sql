@@ -109,7 +109,7 @@ CREATE TABLE Borrow_book
     id_branch INT,
     id_borrow_receipt INT,
     point_lost INT CHECK (point_lost > 0),
-    state_borrow VARCHAR(15) CHECK (state_borrow IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
+    state_borrow VARCHAR(15) CHECK (state_borrow IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
 
