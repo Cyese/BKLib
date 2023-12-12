@@ -1,5 +1,5 @@
 use Assignment;
-
+GO
 -- Procedure 1: Find book by title/author's name
 CREATE PROCEDURE findBook @search_term VARCHAR(40)
 AS
@@ -9,7 +9,7 @@ BEGIN
     WHERE LOWER(book_title_name) LIKE LOWER(CONCAT('%', @search_term, '%'))
        OR LOWER(author) LIKE LOWER(CONCAT('%', @search_term, '%'));
 END;
-
+GO
 -- EXEC findBook @search_term = 'Harry'
 
 -- Procedure 2: Find user send/borrow most
@@ -31,8 +31,8 @@ BEGIN
 							FROM	@result
 							);				
 END;
--- EXEC FindTopDonorInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
-
+-- EXEC FindTopDonorInPeriod @start_date='10/12/2023', @end_date='25/12/2023'
+GO
 -- Borrow book
 CREATE OR ALTER PROCEDURE FindTopBorrowInPeriod @start_date DATE, @end_date DATE
 AS
@@ -50,4 +50,4 @@ BEGIN
 							FROM	@result
 							);			
 END;
--- EXEC FindTopBorrowInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
+-- EXEC FindTopBorrowInPeriod @start_date='2023-11-05', @end_date='2023-11-07'

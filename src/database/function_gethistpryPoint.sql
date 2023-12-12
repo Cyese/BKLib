@@ -51,3 +51,5 @@ BEGIN
 
     RETURN
 END
+
+-- SELECT * FROM gethistoryPoint(1, '2023-11-01' ,'2023-11-30')
