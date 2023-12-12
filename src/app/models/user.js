@@ -3,7 +3,7 @@ const {poolPromise, sql} = require('../config/database');
 class User {
     async checkUserEmail(email) {
         try {
-            const queryString = 'SELECT * FROM [User] WHERE email = @Email';
+            const queryString = 'SELECT TOP 1 * FROM [User] WHERE email = @Email';
             const pool = await poolPromise;
             const result = await pool.request()
                 .input('Email', sql.NVarChar, email)
