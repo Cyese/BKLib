@@ -31,7 +31,7 @@ BEGIN
 							FROM	@result
 							);				
 END;
--- EXEC FindTopDonorInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
+-- EXEC FindTopDonorInPeriod @start_date='2023-11-05', @end_date='2023-11-07'
 
 -- Borrow book
 CREATE OR ALTER PROCEDURE FindTopBorrowInPeriod @start_date DATE, @end_date DATE
@@ -50,4 +50,4 @@ BEGIN
 							FROM	@result
 							);			
 END;
--- EXEC FindTopBorrowInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
+-- EXEC FindTopBorrowInPeriod @start_date='2023-11-05', @end_date='2023-11-07'
