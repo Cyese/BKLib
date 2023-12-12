@@ -4,7 +4,7 @@ use Assignment;
 CREATE PROCEDURE findBook @search_term VARCHAR(40)
 AS
 BEGIN
-    SELECT book_title_name, status
+    SELECT book_title_name, total_book, status, id_branch, publish
     FROM Book_title as t JOIN Book as b ON t.id = b.id_book_title
     WHERE LOWER(book_title_name) LIKE LOWER(CONCAT('%', @search_term, '%'))
        OR LOWER(author) LIKE LOWER(CONCAT('%', @search_term, '%'));
