@@ -4,7 +4,7 @@ const session = require('express-session')
 const morgan = require('morgan')
 const methodOverride=require('method-override')
 const exphbs = require('express-handlebars').engine
-const collection=require('./app/models/accountdb')
+// const collection=require('./app/models/accountdb')
 const app = express()
 const port = 3000
 

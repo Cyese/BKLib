@@ -4,7 +4,7 @@
   "description": "Advanced Programming Project",
   "main": "librabry.js",
   "scripts": {
-    "start": "nodemon --inspect src/index.js",
+    "start": "nodemon src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -33,6 +33,6 @@
   "devDependencies": {
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.0.2"
   }
 }
