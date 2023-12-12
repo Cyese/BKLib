@@ -1,6 +1,9 @@
 -- Ignore this
 -- CREATE DATABASE Assignment;
--- use Assignment;
+-- GO
+use Assignment;
+-- GO
+
 -- người dùng
 CREATE TABLE [User]
 (	
@@ -9,12 +12,13 @@ CREATE TABLE [User]
 	lname		VARCHAR(15)	NOT NULL,
 	id	INT IDENTITY(1,1)		PRIMARY KEY,
 	bdate		DATE,
-	address	VARCHAR(30),
+	address	VARCHAR(100),
 	email VARCHAR(50) CONSTRAINT ck_valid_mail CHECK (email LIKE '%_@__%.__%'),
     is_sender BIT DEFAULT 0,
-    is_borrower BIT DEFAULT 0
+    is_borrower BIT DEFAULT 0,
+    point INT DEFAULT 0
 );
-    
+
 --  số điện thoại của người dùng
 CREATE TABLE Phone_number 
 (
@@ -23,7 +27,7 @@ CREATE TABLE Phone_number
     PRIMARY KEY (id_user, phone_number)
 )
 
--- thủ thư checked
+-- thủ thư
 CREATE TABLE Librarian 
 (
     id INT IDENTITY(1,1) PRIMARY KEY,
@@ -34,7 +38,7 @@ CREATE TABLE Librarian
     sex CHAR(1) CHECK (sex IN ('M', 'F'))
 )
 
--- số điện thoại của thủ thư checked
+-- số điện thoại của thủ thư
 CREATE TABLE Phone_number_librarian 
 (
     id_librarian INT,
@@ -42,7 +46,7 @@ CREATE TABLE Phone_number_librarian
     PRIMARY KEY (id_librarian, phone_number)
 )
 
--- chi nhánh checked
+-- chi nhánh
 CREATE TABLE Branch 
 (
     name VARCHAR(15)	NOT NULL,
@@ -94,6 +98,7 @@ CREATE TABLE Point_payment
     point INT NOT NULL,
     date DATE,
     PRIMARY KEY (id,id_user),
+
 )
 
 -- mượn sách
@@ -104,6 +109,7 @@ CREATE TABLE Borrow_book
     id_branch INT,
     id_borrow_receipt INT,
     point_lost INT CHECK (point_lost > 0),
+    state_borrow VARCHAR(15) CHECK (state_borrow IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
 
@@ -114,9 +120,8 @@ CREATE TABLE Return_book
     id_book INT,
     id_branch INT,
     id_borrow_receipt INT,
-    point_penalty INT DEFAULT 0,
-    date_return DATE,
-    state_return VARCHAR(15),
+    point_penalty INT,
+    state_return VARCHAR(15) CHECK (state_return IN ('hu_hong_nhe', 'nguyen_ven','hu_hong_vua','hu_hong_nang','mat')),
     PRIMARY KEY (id_borrower, id_book, id_branch, id_borrow_receipt)
 )
 
@@ -128,8 +133,6 @@ CREATE TABLE Send_book
     id_branch INT,
     id_send_receipt INT,
     point_bonus INT,
-    date_return DATE,
-    state_return VARCHAR(15),
     PRIMARY KEY (id_sender,id_book,id_branch,id_send_receipt)
 )
 
@@ -163,152 +166,21 @@ CREATE TABLE Feedback
     id INT IDENTITY(1,1) PRIMARY KEY ,
     description VARCHAR(255),
     id_book_title INT NOT NULL ,
+    date_fb DATE NOT NULL,
     id_user INT NOT NULL,
 )
 
 -- phản hồi feedback
 CREATE TABLE Rep_feedback
 (
-    id INT IDENTITY(1,1) PRIMARY KEY ,
+    id INT PRIMARY KEY ,
     id_feedback INT,
     
 )
+
 -- tham chiếu khóa ngoại giữa sdt và user
 ALTER  TABLE Phone_number ADD CONSTRAINT fk_phn_user_id	
-FOREIG INTO Book_title (author, book_title_name)
-VALUES ('Stieg Larsson', 'The Girl with the Dragon Tattoo');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Gillian Flynn', 'Gone Girl');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Dan Brown', 'The Da Vinci Code');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Thomas Harris', 'The Silence of the Lambs');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Paula Hawkins', 'The Girl on the Train');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Arthur Conan Doyle', 'The Hound of the Baskervilles');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Tana French', 'In the Woods');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Liane Moriarty', 'Big Little Lies');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Carlos Ruiz Zafón', 'The Shadow of the Wind');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Dennis Lehane', 'Gone Baby Gone');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Agatha Christie', 'Murder on the Orient Express');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Alexander McCall Smith', 'The No. 1 Ladies'' Detective Agency');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Robert Galbraith', 'The Cuckoo''s Calling');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Michael Connelly', 'The Poet');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Dashiell Hammett', 'The Maltese Falcon');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Walter Isaacson', 'Steve Jobs');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Anne Frank', 'The Diary of a Young Girl');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Laura Hillenbrand', 'Unbroken');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Rebecca Skloot', 'The Immortal Life of Henrietta Lacks');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Jeannette Walls', 'The Glass Castle');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Stephen R. Covey', 'The 7 Habits of Highly Effective People');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Dale Carnegie', 'How to Win Friends and Influence People');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('James Clear', 'Atomic Habits');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Eckhart Tolle', 'The Power of Now');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Jen Sincero', 'You Are a Badass');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Jon Krakauer', 'Into the Wild');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Elizabeth Gilbert', 'Eat, Pray, Love');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Bill Bryson', 'In a Sunburned Country');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Bill Bryson', 'A Walk in the Woods');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Cheryl Strayed', 'Wild');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('J.K. Rowling', 'Harry Potter and the Philosopher''s Stone');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Eric Carle', 'The Very Hungry Caterpillar');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Maurice Sendak', 'Where the Wild Things Are');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Roald Dahl', 'Matilda');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('E.B. White', 'Charlotte''s Web');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Bible');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Quran');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'Bhagavad Gita');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Laozi', 'Tao Te Ching');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Various authors', 'The Book of Mormon');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Stephen Hawking', 'A Brief History of Time');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Yuval Noah Harari', 'A Brief History of Humankind');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Richard Dawkins', 'The Selfish Gene');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Carl Sagan', 'Cosmos');
-
-INSERT INTO Book_title (author, book_title_name)
-VALUES ('Brian Greene', 'The Elegant Universe');N KEY (id_user) REFERENCES [User] (id)
+FOREIGN KEY (id_user) REFERENCES [User] (id)
 ON DELETE CASCADE;
 
 -- tham chiếu khóa ngoại giữa thủ thư và chi nhánh
@@ -408,4 +280,8 @@ FOREIGN KEY (id_book_title) REFERENCES Book_title (id)
 -- tham chiếu giữa bảng feedback và bảng rep_feedback
 ALTER  TABLE Rep_feedback ADD 
 CONSTRAINT fk_ref_fee_id	
-FOREIGN KEY (id_feedback) REFERENCES Feedback (id);
+FOREIGN KEY (id_feedback) REFERENCES Feedback (id),
+CONSTRAINT fk_ref_fee_idprimary	
+FOREIGN KEY (id) REFERENCES Feedback (id)
+;
+
