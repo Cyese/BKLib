@@ -1,4 +1,3 @@
-x
 -- Ignore this
 CREATE DATABASE Assignment;
 use Assignment;
@@ -11,7 +10,7 @@ CREATE TABLE [User]
 	lname		VARCHAR(15)	NOT NULL,
 	id	INT IDENTITY(1,1)		PRIMARY KEY,
 	bdate		DATE,
-	address	VARCHAR(30),
+	address	VARCHAR(100),
 	email VARCHAR(50) CONSTRAINT ck_valid_mail CHECK (email LIKE '%_@__%.__%'),
     is_sender BIT DEFAULT 0,
     is_borrower BIT DEFAULT 0,
@@ -50,7 +49,7 @@ CREATE TABLE Branch
 (
     name VARCHAR(15)	NOT NULL,
 	id		INT IDENTITY(1,1)		PRIMARY KEY,
-	address	VARCHAR(30),
+	address	VARCHAR(100),
     id_librarian INT
 )
 
@@ -72,7 +71,7 @@ CREATE TABLE Book_title
     author	VARCHAR(40) NOT NULL,
     total_book INT,
     book_title_name VARCHAR(40) NOT NULL,
-    min_age INT CHECK (min_age > 0),
+    min_age INT CHECK (min_age > 0) DEFAULT 13,
 )
 
 -- danh mục

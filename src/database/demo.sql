@@ -24,3 +24,11 @@ SELECT *
 FROM [User]
 JOIN Phone_number
 ON [User].id = Phone_number.id_user;
+GO
+
+SELECT * FROM Receipt;
+
+USE [Assignment]
+GO
+
+SELECT id, id_branch FROM Book;
