@@ -387,7 +387,7 @@
                             </div>
                             <div class="card-footer">
                               <form method="POST" action="/home/booklist">
-                                <input type="hidden" name="category" value="{{this.id}}">
+                                <input type="hidden" name="id" value="{{this.id}}">
                                 <button class="btn btn-primary" type="submit">Mượn</button>
                               </form>
                             </div>
@@ -397,7 +397,7 @@
                   {{else}}
                     {{#if list}}
                       <div class = "row d-flex">
-                      <table>
+                      <table class="table table-primary table-striped">
                         <thead> 
                           <th scope="col"> Năm xuất bản </th>
                           <th scope="col"> Tên chi nhánh  </th>
@@ -413,6 +413,7 @@
                               <td>{{this.status}}</td>
                             </tr>
                           {{/each}}
+
                       </table>
                       </div>
                     {{else}}
