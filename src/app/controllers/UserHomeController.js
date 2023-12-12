@@ -1,19 +1,28 @@
-const Library = require('./Library')
-const account=require('../models/old/accountdb')
-
+// const Library = require('./Library')
+const book = require('../models/book')
+const user = require('../models/user')
 class UserHomeController{
     async index(req, res, next){
-        const query = req.query
-        var type = query.type 
-        if (type === undefined)
-            type='Novel'
-        const Books = await Library.sortByType(type)
-        if (req.session.name){
-            res.render('home', {query, Books : Books, name: req.session.name})
+        const result = await book.loadByCatergory('Khoa hoc') 
+        if (req.session.id){
+            res.render('home', {Books : result, name: req.session.lname, id : req.session.id})
         }
         else {
-            res.render('home', {query, Books : Books})
+            res.render('home', {Books : result})
         }
+    }
+    async indexData(req, res, next){
+        const category = req.body.category
+        const result = await book.loadByCatergory(category) 
+        if (req.session.id){
+            res.render('home', {Books : result, name: req.session.user})
+        }
+        else {
+            res.render('home', {Books : result})
+        }
+    }
+    async booklist(req,res,next){
+        
     }
 }
 

@@ -285,32 +285,6 @@
     }
     
   </script>
-  <!-- <div class="auth-form">
-                        <div class="auth-form__container">
-                                <div class="auth-form__header">
-                                    <h3 class="auth-form__heading">Đăng nhập</h3>
-                                    <span class="auth-form__switch-btn">Đăng ký</span>
-                                </div>
-                                <div class="auth-form__form">
-                                    <div class="auth-form__group">
-                                        <input type="text" class="auth-form__input", placeholder= "Nhập tài khoản">
-                                    </div>
-        
-                                    <div class="auth-form__group">
-                                        <input type="password" class="auth-form__input", placeholder= "Nhập mật khẩu">
-                                    </div>
-                                    
-                                </div>
-                                <div class="auth-form__controls">
-                                    <button class="btn auth-form__controls-back">TRỞ LẠI</button>
-                                    <button class="btn btn--primary">ĐĂNG NHẬP</button>
-                                    
-                                </div>
-                        </div>
-                        
-                   </div> -->
-  <!-- </div>
-        </div> -->
   <div class="shopping_area">
     <div class="shopping_container">
       <div class="grid">
@@ -321,20 +295,24 @@
                 <i class="category_heading-icon fa-solid fa-list"></i>
                 Danh Mục
               </h3>
-              <ul class="category-list">
-                <li class="category-item">
-                  <button class="btn" id="btnClick1" data-query ="Novel" >Tiểu thuyết</button>
-                </li>
-                <li class="category-item">
-                  <button class="btn" id="btnClick2" data-query="Document" >Tài liệu</button>
-                </li>
-                <li class="category-item">
-                  <button class="btn" id="btnClick3" data-query= "Megazin">Tạp chí</button>
-                </li>
-                <li class="category-item">
-                  <button class="btn" id="btnClick4" data-query= "Comic">Truyện tranh</button>
-                </li>
-              </ul>
+                <ul class="category-list">
+                  <form class="category-item" method="POST" action="/home">
+                      <input type="hidden" name="category" value="Khoa hoc">
+                    <button class="btn" type="submit">Khoa học</button>
+                    </form>
+                  <form class="category-item" method="POST" action="/home">
+                      <input type="hidden" name="category" value="Lang man">
+                    <button class="btn" type="submit">Lãng mạn</button>
+                    </form>
+                  <form class="category-item" method="POST" action="/home">
+                      <input type="hidden" name="category" value="Trinh tham">
+                    <button class="btn" type="submit">Trinh thám</button>
+                    </form>
+                  <form class="category-item" method="POST" action="/home">
+                    <input type="hidden" name="category" value="Fantasy">
+                    <button class="btn" type="submit">Fantasy</button>
+                  </form>
+                </ul> 
             </nav>
           </div>
         <script>
@@ -392,31 +370,26 @@
           })
         </script>
           <div class="grid__column-10">
-            <div class="home-filter">
-              <!-- <div class="select-input">
-                                    <span class="select-input__label">
-                                        Trang
-                                        <i class="fa fa-angle-down"></i>
-                                    </span>
-                                </div> -->
-            </div>
             <div class="home-product">
-              <div class="grid__row">
+              <div class="grid__row gap-2 justify-content-center" >
                 {{#if Books}}
                   {{#each Books}}
                     <span class="border border-success-subtle rounded">
-                          <div class="card" style="width: 15rem">
+                          <div class="card" style="width: 16rem">
                           {{!-- <img src="..." class="card-img-top" alt="..."> --}}
                             <div class="card-body">
-                              <h5 class="card-title fs-3"></h5><strong>{{this.title}}</strong></h5>
+                              <h5 class="card-title fs-3"></h5><strong>{{this.book_title_name}}</strong></h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text fs-6 lh-1"><i>Author: {{this.author}}</i></p>
-                                <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p>
-                                <p class="card-text fs-6 lh-1">Availabe:{{this.available}}</p>
+                                <p class="card-text fs-6 lh-1"><i>Tác giả: {{this.author}}</i></p>
+                                {{!-- <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p> --}}
+                                <p class="card-text fs-6 lh-1"> Số lượng: {{this.total_book}}</p>
                             </div>
                             <div class="card-footer">
-                              <a href="#" class="btn btn-primary">Borrow</a>
+                              <form method="POST" action="/home/booklist">
+                                <input type="hidden" name="category" value="{{this.id}}">
+                                <button class="btn btn-primary" type="submit">Mượn</button>
+                              </form>
                             </div>
                       </div>
                     </span>

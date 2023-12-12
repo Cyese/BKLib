@@ -1,4 +1,3 @@
-const { checkOptionalTime } = require('tarn/dist/utils');
 const User = require('../models/user')
 // const bcrypt = require('bcrypt')
 class UserSignupController{
