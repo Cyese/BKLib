@@ -372,56 +372,26 @@
           <div class="grid__column-10">
             <div class="home-product">
               <div class="grid__row gap-2 justify-content-center" >
-                {{#if Books}}
-                  {{#each Books}}
-                    <span class="border border-success-subtle rounded">
-                          <div class="card" style="width: 16rem">
-                          {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-                            <div class="card-body">
-                              <h5 class="card-title fs-3"></h5><strong>{{this.book_title_name}}</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text fs-6 lh-1"><i>Tác giả: {{this.author}}</i></p>
-                                {{!-- <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p> --}}
-                                <p class="card-text fs-6 lh-1"> Số lượng: {{this.total_book}}</p>
-                            </div>
-                            <div class="card-footer">
-                              <form method="POST" action="/home/booklist">
-                                <input type="hidden" name="id" value="{{this.id}}">
-                                <button class="btn btn-primary" type="submit">Mượn</button>
-                              </form>
-                            </div>
-                      </div>
-                    </span>
-                  {{/each}}
-                  {{else}}
-                    {{#if list}}
-                      <div class = "row d-flex">
-                      <table class="table table-primary table-striped">
-                        <thead> 
-                          <th scope="col"> Năm xuất bản </th>
-                          <th scope="col"> Tên chi nhánh  </th>
-                          <th scope="col"> Địa chỉ </th>
-                          <th scope="col"> Trạng thái</th>
-                        </thead>
-                        <tbody>
-                          {{#each list}}
-                            <tr>
-                              <td>{{this.publish_year}}</td>
-                              <td>{{this.branch_name}}</td>
-                              <td>{{this.branch_address}}</td>
-                              <td>{{this.status}}</td>
-                            </tr>
-                          {{/each}}
+                    <div class = "row d-flex">
+                    <table class="table table-primary table-striped">
+                    <thead> 
+                        <th scope="col"> Năm xuất bản </th>
+                        <th scope="col"> Tên chi nhánh  </th>
+                        <th scope="col"> Địa chỉ </th>
+                        <th scope="col"> Trạng thái</th>
+                    </thead>
+                    <tbody>
+                        {{#each list}}
+                        <tr>
+                            <td>{{this.publish_year}}</td>
+                            <td>{{this.branch_name}}</td>
+                            <td>{{this.branch_address}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
 
-                      </table>
-                      </div>
-                    {{else}}
-                      <div class = "col-sm-12"><p>
-                        No books found
-                      </p></div>
-                    {{/if}}
-                {{/if}}
+                    </table>
+                    </div>
               </div>
             </div>
           </div>

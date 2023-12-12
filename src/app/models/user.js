@@ -31,7 +31,7 @@ class User {
 
     async getPointHisory(id) {
         try {
-            const queryString = 'SELECT * FROM gethistoryPoint(@Id';
+            const queryString = "SELECT * FROM gethistoryPoint(@Id. '2023-11-01', '2023-12-13')";
             const pool = poolPromise;
             const result = await pool.request()
                 .input('Id', sql.Int, id)
