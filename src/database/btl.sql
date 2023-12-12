@@ -1,7 +1,8 @@
 -- Ignore this
 CREATE DATABASE Assignment;
+GO
 use Assignment;
-
+GO
 -- người dùng
 CREATE TABLE [User]
 (	

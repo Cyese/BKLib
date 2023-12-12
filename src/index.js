@@ -3,6 +3,7 @@ const express = require('express')
 const session = require('express-session')
 const morgan = require('morgan')
 const methodOverride=require('method-override')
+const bodyParse = require('body-parser');
 const exphbs = require('express-handlebars').engine
 const { poolPromise, sql } = require('./app/config/database');
 const app = express()
@@ -10,15 +11,16 @@ const port = 3000
 
 const route=require('./routes/index')
 
+app.use(bodyParse.json());
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({
-  extended : true
-}))
+app.use(bodyParse.urlencoded({
+  extended: true
+}));
 
 app.use(methodOverride('_method'))
 
 // HTTP logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 // Create session
 
