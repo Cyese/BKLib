@@ -37,7 +37,7 @@ END;
 CREATE OR ALTER PROCEDURE FindTopBorrowInPeriod @start_date DATE, @end_date DATE
 AS
 BEGIN
-	DECLARE @result TABLE (id_borrow INT, counts INT)
+	DECLARE @result TABLE (id_borrower INT, counts INT)
 	INSERT INTO @result
 	SELECT	id_borrower, COUNT(id_borrow_receipt) AS counts
 	FROM	(Borrow_book as b JOIN Receipt as r ON b.id_borrow_receipt = r.id) 
