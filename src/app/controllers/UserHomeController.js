@@ -31,6 +31,12 @@ class UserHomeController{
         req.session.info = info;
         res.redirect('/home');
     }
+    
+    async history(req,res,next){
+        const id = req.session.user;
+        const result = await user.getHistory(id);
+        res.render('history', {history : result});
+    }
 }
 
 module.exports = new UserHomeController
