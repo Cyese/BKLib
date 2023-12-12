@@ -6,5 +6,5 @@ const userHomeController=require('../app/controllers/UserHomeController')
 router.get('/', userHomeController.index);
 router.post('/', userHomeController.indexData);
 router.post('/booklist', userHomeController.booklist);
-
+router.get('/history', userHomeController.history);
 module.exports = router

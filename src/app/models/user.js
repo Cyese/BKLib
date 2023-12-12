@@ -28,6 +28,19 @@ class User {
         // const queryString2 = 'INSERT INTO [Phone_number] (number, email) VALUES (@Phonenumber, @Email)';
         console.log('You dumpass')
     }
+
+    async getPointHisory(id) {
+        try {
+            const queryString = 'SELECT * FROM gethistoryPoint(@Id';
+            const pool = poolPromise;
+            const result = await pool.request()
+                .input('Id', sql.Int, id)
+                .query(queryString);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = new User;
