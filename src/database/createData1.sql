@@ -1,4 +1,4 @@
-use Assignment;
+--use Assignment;
 -- ==== Librarian ====
 INSERT INTO Librarian (fname, minit, lname, email, sex)
 VALUES ('Vu', 'S', 'Trang', 'vustrang@outlook.com', 'F');

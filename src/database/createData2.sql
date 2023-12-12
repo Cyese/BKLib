@@ -338,114 +338,114 @@ VALUES (1, 'available', 1965, 1),
     (2, 'available', 1999, 65),
     (2, 'available', 1999, 65);
 
-INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus)
-VALUES (11, 1, 1, 1, 10),
-    (15, 2, 1, 2, 10),
-    (18, 3, 3, 3, 10),
-    (17, 4, 4, 4, 10),
-    (1, 5, 4, 5, 10),
-    (17, 6, 2, 6, 10),
-    (13, 7, 1, 7, 10),
-    (25, 8, 1, 8, 10),
-    (1, 9, 2, 9, 10),
-    (10, 10, 2, 10, 10),
-    (24, 11, 3, 11, 10),
-    (25, 12, 2, 12, 10),
-    (2, 13, 2, 13, 10),
-    (16, 14, 5, 14, 10),
-    (15, 15, 4, 15, 10),
-    (13, 16, 4, 16, 10),
-    (1, 17, 1, 17, 10),
-    (19, 18, 1, 18, 10),
-    (25, 19, 5, 19, 10),
-    (17, 20, 4, 20, 10),
-    (25, 21, 4, 21, 10),
-    (5, 22, 2, 22, 10),
-    (11, 23, 2, 23, 10),
-    (4, 24, 5, 24, 10),
-    (19, 25, 1, 25, 10),
-    (23, 26, 1, 26, 10),
-    (5, 27, 2, 27, 10),
-    (5, 28, 1, 28, 10),
-    (20, 29, 1, 29, 10),
-    (13, 30, 3, 30, 10),
-    (20, 31, 2, 31, 10),
-    (23, 32, 2, 32, 10),
-    (18, 33, 2, 33, 10),
-    (2, 34, 2, 34, 10),
-    (6, 35, 2, 35, 10),
-    (2, 36, 5, 36, 10),
-    (6, 37, 5, 37, 10),
-    (25, 38, 3, 38, 10),
-    (9, 39, 3, 39, 10),
-    (14, 40, 3, 40, 10),
-    (5, 41, 1, 41, 10),
-    (9, 42, 1, 42, 10),
-    (10, 43, 5, 43, 10),
-    (1, 44, 5, 44, 10),
-    (12, 45, 2, 45, 10),
-    (20, 46, 2, 46, 10),
-    (21, 47, 2, 47, 10),
-    (16, 48, 3, 48, 10),
-    (2, 49, 2, 49, 10),
-    (21, 50, 5, 50, 10),
-    (19, 51, 4, 51, 10),
-    (24, 52, 4, 52, 10),
-    (14, 53, 1, 53, 10),
-    (18, 54, 1, 54, 10),
-    (9, 55, 4, 55, 10),
-    (25, 56, 4, 56, 10),
-    (6, 57, 1, 57, 10),
-    (12, 58, 1, 58, 10),
-    (3, 59, 1, 59, 10),
-    (17, 60, 1, 60, 10),
-    (13, 61, 1, 61, 10),
-    (12, 62, 1, 62, 10),
-    (12, 63, 1, 63, 10),
-    (7, 64, 4, 64, 10),
-    (8, 65, 4, 65, 10),
-    (23, 66, 3, 66, 10),
-    (2, 67, 3, 67, 10),
-    (11, 68, 3, 68, 10),
-    (21, 69, 3, 69, 10),
-    (23, 70, 1, 70, 10),
-    (7, 71, 5, 71, 10),
-    (10, 72, 5, 72, 10),
-    (18, 73, 3, 73, 10),
-    (12, 74, 3, 74, 10),
-    (23, 75, 1, 75, 10),
-    (13, 76, 3, 76, 10),
-    (4, 77, 1, 77, 10),
-    (15, 78, 3, 78, 10),
-    (10, 79, 3, 79, 10),
-    (6, 80, 4, 80, 10),
-    (19, 81, 4, 81, 10),
-    (16, 82, 5, 82, 10),
-    (23, 83, 5, 83, 10),
-    (7, 84, 2, 84, 10),
-    (14, 85, 3, 85, 10),
-    (16, 86, 3, 86, 10),
-    (12, 87, 5, 87, 10),
-    (17, 88, 5, 88, 10),
-    (24, 89, 3, 89, 10),
-    (7, 90, 3, 90, 10),
-    (19, 91, 2, 91, 10),
-    (23, 92, 2, 92, 10),
-    (10, 93, 3, 93, 10),
-    (6, 94, 3, 94, 10),
-    (4, 95, 5, 95, 10),
-    (4, 96, 2, 96, 10),
-    (13, 97, 2, 97, 10),
-    (5, 98, 2, 98, 10),
-    (15, 99, 1, 99, 10),
-    (16, 100, 1, 100, 10),
-    (24, 101, 3, 101, 10),
-    (17, 102, 3, 102, 10),
-    (16, 103, 5, 103, 10),
-    (16, 104, 1, 104, 10),
-    (6, 105, 1, 105, 10),
-    (7, 106, 2, 106, 10),
-    (1, 107, 2, 107, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (11, 1, 1, 1, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (15, 2, 1, 2, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (18, 3, 3, 3, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 4, 4, 4, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (1, 5, 4, 5, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 6, 2, 6, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 7, 1, 7, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 8, 1, 8, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (1, 9, 2, 9, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (10, 10, 2, 10, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (24, 11, 3, 11, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 12, 2, 12, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (2, 13, 2, 13, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 14, 5, 14, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (15, 15, 4, 15, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 16, 4, 16, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (1, 17, 1, 17, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (19, 18, 1, 18, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 19, 5, 19, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 20, 4, 20, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 21, 4, 21, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (5, 22, 2, 22, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (11, 23, 2, 23, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (4, 24, 5, 24, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (19, 25, 1, 25, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 26, 1, 26, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (5, 27, 2, 27, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (5, 28, 1, 28, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (20, 29, 1, 29, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 30, 3, 30, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (20, 31, 2, 31, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 32, 2, 32, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (18, 33, 2, 33, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (2, 34, 2, 34, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 35, 2, 35, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (2, 36, 5, 36, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 37, 5, 37, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 38, 3, 38, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (9, 39, 3, 39, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (14, 40, 3, 40, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (5, 41, 1, 41, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (9, 42, 1, 42, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (10, 43, 5, 43, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (1, 44, 5, 44, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 45, 2, 45, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (20, 46, 2, 46, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (21, 47, 2, 47, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 48, 3, 48, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (2, 49, 2, 49, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (21, 50, 5, 50, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (19, 51, 4, 51, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (24, 52, 4, 52, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (14, 53, 1, 53, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (18, 54, 1, 54, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (9, 55, 4, 55, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (25, 56, 4, 56, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 57, 1, 57, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 58, 1, 58, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (3, 59, 1, 59, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 60, 1, 60, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 61, 1, 61, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 62, 1, 62, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 63, 1, 63, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (7, 64, 4, 64, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (8, 65, 4, 65, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 66, 3, 66, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (2, 67, 3, 67, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (11, 68, 3, 68, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (21, 69, 3, 69, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 70, 1, 70, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (7, 71, 5, 71, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (10, 72, 5, 72, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (18, 73, 3, 73, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 74, 3, 74, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 75, 1, 75, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 76, 3, 76, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (4, 77, 1, 77, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (15, 78, 3, 78, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (10, 79, 3, 79, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 80, 4, 80, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (19, 81, 4, 81, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 82, 5, 82, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 83, 5, 83, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (7, 84, 2, 84, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (14, 85, 3, 85, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 86, 3, 86, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (12, 87, 5, 87, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 88, 5, 88, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (24, 89, 3, 89, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (7, 90, 3, 90, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (19, 91, 2, 91, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (23, 92, 2, 92, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (10, 93, 3, 93, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 94, 3, 94, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (4, 95, 5, 95, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (4, 96, 2, 96, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (13, 97, 2, 97, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (5, 98, 2, 98, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (15, 99, 1, 99, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 100, 1, 100, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (24, 101, 3, 101, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (17, 102, 3, 102, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 103, 5, 103, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (16, 104, 1, 104, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (6, 105, 1, 105, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (7, 106, 2, 106, 10);
+INSERT INTO Send_book (id_sender, id_book, id_branch, id_send_receipt, point_bonus) VALUES (1, 107, 2, 107, 10);
+
 
 INSERT INTO Point_payment (id_user, point, date)
 VALUES (3, 10, '2023-11-10');
