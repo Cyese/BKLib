@@ -1,12 +1,11 @@
 ------------- Book and relevant Book---------------
-CREATE OR ALTER PROCEDURE SendBook
+CREATE OR ALTER PROCEDURE AddBook
     @BookTitleName VARCHAR(40),
-	@author VARCHAR(40),
 	@publish INT,
     @BranchId INT
 AS
 BEGIN
-    IF @publish IS NOT NULL AND @publish < 0 AND @publish > YEAR(GETDATE())
+    IF @publish IS NOT NULL AND (@publish < 0 OR @publish > YEAR(GETDATE()))
     BEGIN
         RAISERROR('Năm xuất bản không hợp lệ!', 5, 1);
         RETURN;
@@ -80,17 +79,17 @@ BEGIN
 	DECLARE @BookTitleId INT
     SELECT @BookTitleId = id_book_title FROM Book WHERE id = @id AND id_branch = @id_branch
 
-	UPDATE Book_Title
+	UPDATE Book_title
     SET total_book = total_book - 1
     WHERE id = @BookTitleId
 	---check total_book if it's <= 0 then delete the book title
-	DECLARE @totalBook INT
-	SELECT @totalBook = total_book FROM Book_Title WHERE id = @BookTitleId
-	IF @totalBook < 0
-    BEGIN
-        DELETE FROM Book_Title
-		WHERE id = @BookTitleId
-    END
+	-- DECLARE @totalBook INT
+	-- SELECT @totalBook = total_book FROM Book_Title WHERE id = @BookTitleId
+	-- IF @totalBook < 0
+    -- BEGIN
+    --     DELETE FROM Book_Title
+	-- 	WHERE id = @BookTitleId
+    -- END
 END
 
 ------------------------------------------------------User----------------------

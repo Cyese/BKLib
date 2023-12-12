@@ -218,6 +218,17 @@ VALUES (1),
     (106),
     (107);
 
+INSERT INTO Receipt_borrow_book(id, expire)
+VALUES 
+    (1, '2023-11-20'),
+    (2, '2023-11-17'),
+    (3, '2023-11-17'),
+    (4, '2023-11-17'),
+    (5, '2023-11-17'),
+    (6, '2023-11-16'),
+    (7, '2023-11-16'),
+    (8, '2023-11-19');
+
 INSERT INTO Book (id_branch, status, publish, id_book_title)
 VALUES (1, 'available', 1965, 1),
     (3, 'available', 1965, 1),
