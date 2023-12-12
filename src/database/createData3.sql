@@ -1,4 +1,4 @@
-
+use Assignment;
 INSERT INTO Feedback (description, id_book_title, date_fb, id_user)
 VALUES ('Sach hay lam moi nguoi oi!', '7', '2023-11-06', '2');
 
@@ -32,19 +32,19 @@ VALUES (1, 1, 1, 1, 2, 'hu_hong_nang');
 
 -- Row 2
 INSERT INTO Borrow_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_lost, state_borrow)
-VALUES (2, 2, 1, 2, 2, 'nguyen_ven');
+VALUES (2, 2, 3, 2, 2, 'nguyen_ven');
 
 -- Row 3
 INSERT INTO Borrow_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_lost, state_borrow)
-VALUES (3, 3, 3, 3, 2, 'hu_hong_nhe');
+VALUES (3, 3, 4, 3, 2, 'hu_hong_nhe');
 
 -- Row 4
 INSERT INTO Borrow_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_lost, state_borrow)
-VALUES (4, 4, 4, 4, 2, 'hu_hong_vua');
+VALUES (4, 4, 2, 4, 2, 'hu_hong_vua');
 
 -- Row 5
 INSERT INTO Borrow_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_lost, state_borrow)
-VALUES (5, 5, 4, 5, 2, 'hu_hong_nang');
+VALUES (5, 5, 1, 5, 2, 'hu_hong_nang');
 
 
 ---- ReturnBook Table---
@@ -54,16 +54,18 @@ VALUES (1, 1, 1, 1, 20, 'mat');
 
 -- Row 2
 INSERT INTO Return_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_penalty, state_return)
-VALUES (2, 2, 1, 2, 0, 'nguyen_ven');
+VALUES (2, 2, 3, 2, 0, 'nguyen_ven');
 
 -- Row 3
 INSERT INTO Return_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_penalty, state_return)
-VALUES (3, 3, 3, 3, 4, 'hu_hong_nhe');
+VALUES (3, 3, 4, 3, 4, 'hu_hong_nhe');
 
 -- Row 4
 INSERT INTO Return_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_penalty, state_return)
-VALUES (4, 4, 4, 4, 8, 'hu_hong_vua');
+VALUES (4, 4, 2, 4, 8, 'hu_hong_vua');
 
 -- Row 5
 INSERT INTO Return_book (id_borrower, id_book, id_branch, id_borrow_receipt, point_penalty, state_return)
-VALUES (5, 5, 4, 5, 12, 'hu_hong_nang');
+VALUES (5, 5, 1, 5, 12, 'hu_hong_nang');
+
+SELECT * FROM Book
