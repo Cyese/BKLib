@@ -5,7 +5,7 @@ class UserHomeController{
     async index(req, res, next){
         const result = await book.loadByCatergory('Khoa hoc') 
         if (req.session.id){
-            res.render('home', {Books : result, name: req.session.name})
+            res.render('home', {Books : result, name: req.session.lname, id : req.session.id})
         }
         else {
             res.render('home', {Books : result})
@@ -20,6 +20,9 @@ class UserHomeController{
         else {
             res.render('home', {Books : result})
         }
+    }
+    async booklist(req,res,next){
+        
     }
 }
 

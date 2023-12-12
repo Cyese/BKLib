@@ -9,3 +9,6 @@ SELECT * FROM Belongto_category;
 GROUP BY name_category;
 
 SELECT TOP 1 * FROM [User] WHERE email = 'huonghoang@outlook.com';
+
+
+SELECT * FROM getbooklist(65);
