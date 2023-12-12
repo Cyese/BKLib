@@ -4,7 +4,7 @@ class User {
     async checkUserEmail(email) {
         try {
             const queryString = 'SELECT TOP 1 * FROM [User] WHERE email = @Email';
-            const pool = await poolPromise;
+            const pool = poolPromise;
             const result = await pool.request()
                 .input('Email', sql.NVarChar, email)
                 .query(queryString);
@@ -16,7 +16,7 @@ class User {
     async createUser(fname, minit, lname, day, month, year, email, phonenumber, address) {
         const birthday = `${year}-${month}-${day}`;
         const queryString = 'INSERT INTO [User] (fname, minit, lname, bdate, email, address) VALUES (@Fname, @Minit, @Lname, @Birthday, @Email, @Address)'; 
-        const pool = await poolPromise;
+        const pool = poolPromise;
         const result = await pool.request()
             .input('Fname', sql.NVarChar, fname)
             .input('Minit', sql.NVarChar, minit)

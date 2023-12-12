@@ -1,3 +1,6 @@
+use Assignment;
+GO
+
 CREATE OR ALTER TRIGGER trigger_return_book
 ON Return_book 
 AFTER INSERT

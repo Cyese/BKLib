@@ -395,9 +395,31 @@
                     </span>
                   {{/each}}
                   {{else}}
-                    <div class = "col-sm-12"><p>
-                      No books found
-                    </p></div>
+                    {{#if list}}
+                      <div class = "row d-flex">
+                      <table>
+                        <thead> 
+                          <th scope="col"> Năm xuất bản </th>
+                          <th scope="col"> Tên chi nhánh  </th>
+                          <th scope="col"> Địa chỉ </th>
+                          <th scope="col"> Trạng thái</th>
+                        </thead>
+                        <tbody>
+                          {{#each list}}
+                            <tr>
+                              <td>{{this.publish_year}}</td>
+                              <td>{{this.branch_name}}</td>
+                              <td>{{this.branch_address}}</td>
+                              <td>{{this.status}}</td>
+                            </tr>
+                          {{/each}}
+                      </table>
+                      </div>
+                    {{else}}
+                      <div class = "col-sm-12"><p>
+                        No books found
+                      </p></div>
+                    {{/if}}
                 {{/if}}
               </div>
             </div>

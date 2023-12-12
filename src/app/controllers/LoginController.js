@@ -12,7 +12,7 @@ class UserLoginController {
         if (emailAvailable.length > 0) {
             req.session.user = emailAvailable[0].id;
             req.session.name = emailAvailable[0].lname;
-            // console.log(req.session.user);
+            // console.log(req.session.name);
             res.redirect('/home');
         } else {
             res.render('login', {
