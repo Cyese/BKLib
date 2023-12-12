@@ -1,5 +1,5 @@
 -- Ignore this
--- CREATE DATABASE Assignment;
+-- CREATE DATABASE Assignment
 -- GO
 use Assignment;
 -- GO
