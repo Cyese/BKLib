@@ -18,36 +18,36 @@ END;
 CREATE OR ALTER PROCEDURE FindTopDonorInPeriod @start_date DATE, @end_date DATE
 AS
 BEGIN
-	-- Tạo bảng result chứa số lượng gửi sách của User
-	DECLARE @result_sender TABLE (id_sender INT, counts INT)
-	INSERT INTO @result_sender
-	SELECT	id_sender, COUNT(id_send_receipt) AS donation_count
-	FROM	Send_book 
-	GROUP BY id_sender;
-	-- Xuất tên của User đó
+	DECLARE @result TABLE (id_sender INT, counts INT)
+	INSERT INTO @result
+	SELECT	id_sender, COUNT(id_send_receipt) AS counts
+	FROM	(Send_book as s JOIN Receipt as r ON s.id_send_receipt = r.id) 
+	WHERE	r.date_exported BETWEEN @start_date AND @end_date 
+	GROUP BY id_sender
+
 	SELECT	[User].fname, [User].minit, [User].lname
-	FROM	[User]
-	WHERE	[User].id IN (	SELECT	MAX(id_sender)
-							FROM	@result_sender
+	FROM	[User] JOIN @result ON [User].id = id_sender
+	WHERE	counts IN (	SELECT	MAX(counts)
+							FROM	@result
 							);				
 END;
--- EXEC FindTopDonorInPeriod @start_date='10/12/2023', @end_date='25/12/2023'
+-- EXEC FindTopDonorInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
 
 -- Borrow book
 CREATE OR ALTER PROCEDURE FindTopBorrowInPeriod @start_date DATE, @end_date DATE
 AS
 BEGIN
-	-- Tạo bảng result chứa số lượng gửi sách của User
-	DECLARE @result_borrow TABLE (id_borrower INT, counts INT)
-	INSERT INTO @result_borrow
-	SELECT	id_borrower, COUNT(id_borrow_receipt) AS borrow_count
-	FROM	Borrow_book 
-	GROUP BY id_borrower;
-	-- Xuất tên của User đó
+	DECLARE @result TABLE (id_borrow INT, counts INT)
+	INSERT INTO @result
+	SELECT	id_borrower, COUNT(id_borrow_receipt) AS counts
+	FROM	(Borrow_book as b JOIN Receipt as r ON b.id_borrow_receipt = r.id) 
+	WHERE	r.date_exported BETWEEN @start_date AND @end_date 
+	GROUP BY id_borrower
+
 	SELECT	[User].fname, [User].minit, [User].lname
-	FROM	[User]
-	WHERE	[User].id IN (	SELECT	MAX(id_borrower)
-							FROM	@result_borrow
-							);				
+	FROM	[User] JOIN @result ON [User].id = id_borrower
+	WHERE	counts IN (	SELECT	MAX(counts)
+							FROM	@result
+							);			
 END;
--- EXEC FindTopDonorInPeriod @start_date='10/12/2023', @end_date='25/12/2023'
+-- EXEC FindTopBorrowInPeriod @start_date='05/11/2023', @end_date='07/11/2023'
