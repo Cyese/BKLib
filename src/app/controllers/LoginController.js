@@ -1,34 +1,25 @@
-const collection=require('../models/old/accountdb')
-const bcrypt = require('bcrypt')
-class UserLoginController{
-    login(req, res){
-        res.render('login', {
-            layout: 'LoginSignup'
-        })
-    }
-    async userLogin(req, res, next){
-        try{
-            const check=await collection.findOne({name:req.body.name})
-            if(check!= null){
-                    const correct = await bcrypt.compare(req.body.password,check.password)
-                    req.session.name = check.name
-                    res.redirect('home')
-                }
-            else{
+const User = require('../models/user');
 
-                res.render('login', {
-                    message:"Wrong username or password",
-                    layout: 'LoginSignup'
-                })
-            }
-        }
-        catch{
+class UserLoginController {
+    login(req, res, next) {
+        res.render('login');
+    }
+
+    async userLogin(req, res, next) {
+        const { email } = req.body;
+        const emailAvailable = await User.checkUserEmail(email);
+        // console.log(emailAvailable);
+        if (emailAvailable.length > 0) {
+            req.session.user = emailAvailable[0].id;
+            req.session.name = emailAvailable[0].lname;
+            // console.log(req.session.name);
+            res.redirect('/home');
+        } else {
             res.render('login', {
-                message:"Wrong username or password",
-                layout: 'LoginSignup'
-            })
+                message: 'Email does not exist'
+            });
         }
     }
 }
 
-module.exports = new UserLoginController
+module.exports = new UserLoginController();

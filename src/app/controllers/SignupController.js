@@ -1,40 +1,23 @@
-const account = require('../models/old/accountdb')
-const bcrypt = require('bcrypt')
+const User = require('../models/user')
+// const bcrypt = require('bcrypt')
 class UserSignupController{
-    signup(req, res){
-        res.render('signup', {
-            layout: 'LoginSignup'
-        })
+    signup(req, res, next){
+        res.render('signup');
     }
-    async usersignup(req, res){
-        const data={
-            name: req.body.name,
-            email:req.body.email,
-            password: req.body.password,
-            passwordCheck: req.body.passwordCheck,
-            }
-           
-        const checkNameExist = await account.findOne({name:req.body.name})
-        if(checkNameExist!=null){
-            res.render('signup', {
-                message:"Username is not allowed",
-                layout: 'LoginSignup'
+    async usersignup(req, res, next){
+        const { fname, minit, lname, day, month, year, email, phonenumber, address } = req.body;
+        const emailAvailable = await User.checkUserEmail(email);
+        if (!emailAvailable) {
+            res.render( 'signup',
+                {message :'Email already exists'
             });
-        }
-        else{
-            if(data.password===data.passwordCheck){
-                const hashedPassword = await bcrypt.hash(data.password, 10);
-                data.password = hashedPassword
-                const Account = new account(data)
-                Account.save()
-                res.redirect('login')
-            }
-            else{
-                res.render('signup', {
-                    message:"Your re-password is not correct",
-                    layout: 'LoginSignup'
-                })
-            }
+
+        }else {
+            await User.createUser(fname, minit, lname, day, month, year, email, phonenumber, address)
+            .then(res.render( 'signup',
+                {message: 'Created sucessfully'})
+            );
+
         }
     }
 
