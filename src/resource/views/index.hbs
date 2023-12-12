@@ -278,21 +278,29 @@
               </h3>
               <ul class="category-list">
                 <li class="category-item">
-                  <button class="btn" id="btnClick1" onclick="getBookTitleList('Khoa hoc')" >Khoa học</button>
+                  <form action="/" method="POST">
+                    <button class="btn" id="btnClick1" name="category" value="Khoa học">Khoa học</button>
+                  </form>
                 </li>
                 <li class="category-item">
-                  <button class="btn" id="btnClick2" data-query="Document" >Tài liệu</button>
+                  <form action="/" method="POST">
+                    <button class="btn" id="btnClick2" name="category" value="Document">Tài liệu</button>
+                  </form>
                 </li>
                 <li class="category-item">
-                  <button class="btn" id="btnClick3" data-query= "Megazin">Tạp chí</button>
+                  <form action="/" method="POST">
+                    <button class="btn" id="btnClick3" name="category" value="Megazin">Tạp chí</button>
+                  </form>
                 </li>
                 <li class="category-item">
-                  <button class="btn" id="btnClick4" data-query= "Comic">Truyện tranh</button>
+                  <form action="/" method="POST">
+                    <button class="btn" id="btnClick4" name="category" value="Comic">Truyện tranh</button>
+                  </form>
                 </li>
               </ul>
             </nav>
           </div>
-        <script>
+        {{!-- <script>
           function getBookTitleList(category){
             fetch('/', {
               method: 'POST',
@@ -302,7 +310,7 @@
               body: JSON.stringify({ category: category })
             })
           }
-        </script>
+        </script> --}}
           <div class="grid__column-10">
             <div class="home-filter">
               <!-- <div class="select-input">
