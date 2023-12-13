@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TESTING</title>
+  <title>Thư viện cộng đồng</title>
   {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -62,6 +62,9 @@
                 </li>
                 <li class="nav_item">
                   <a href="/login" class="nav_item__link">{{name}}</a>
+                </li>
+                  <li class="nav_item">
+                  <a href="/home/history" class="nav_item__link"> Điểm </a>
                 </li>
               </ul>
             </div>
@@ -237,13 +240,13 @@
   <!-- Phan Tim Kiem -->
   <div class="header__search">
     <div class="search__container">
-      <div class="search">
-        <input type="text" , class="search__input" , placeholder="Nhập để tìm kiếm" />
-        <!-- Nut tim kiem -->
-        <button class="search_btn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+      <form class="form search" method="POST" action="/home/search">
+          <input type="text" class="search__input" id="searchField" placeholder="Nhập để tìm kiếm" name="item"/>
+          <!-- Nut tim kiem -->
+          <button class="search_btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+      </form>
     </div>
   </div>
   <script>
@@ -417,10 +420,30 @@
                       </table>
                       </div>
                     {{else}}
-                      <div class = "col-sm-12"><p>
-                        No books found
-                      </p></div>
-                    {{/if}}
+                      {{#if search}}
+                      <div class = "row d-flex">
+                        <table class="table table-striped">
+                          <thead> 
+                            <th scope="col"> Tựa sách </th>
+                            <th scope="col"> Tác giả  </th>
+                            <th scope="col"> Trạng thái</th>
+                            <th scope="col"> Năm xuất bản </th>
+                            <th scope="col"> Địa chỉ </th>
+                          </thead>
+                          <tbody>
+                            {{#each search}}
+                              <tr>
+                                <td>{{this.book_title_name}}</td>
+                                <td>{{this.author}}</td>
+                                <td>{{this.status}}</td>
+                                <td>{{this.publish}}</td>
+                                <td>{{this.id_branch}}</td>
+                              </tr>
+                            {{/each}}
+                        </table>
+                      </div>
+                      {{/if}}
+                    {{/if}} 
                 {{/if}}
               </div>
             </div>
@@ -429,55 +452,7 @@
       </div>
     </div>
   </div>
-
-  {{!-- <footer class="footer">
-    <div class="grid">
-      <div class="grid__row">
-        <div class="grid__column-6">
-          <h3 class="footer__heading">
-            Thư viện Trường Đại học Bách Khoa Tp.Hồ Chí Minh
-          </h3>
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <i class="fa-sharp fa-solid fa-location-dot"></i>
-              268 Lý Thường Kiệt, P.14, Q.10, Tp.HCM
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-phone"></i>
-              (84.8) 38647256 ext. 5419, 5420
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-envelope"></i>
-              thuvien@hcmut.edu.vn
-            </li>
-          </ul>
-        </div>
-        <div class="grid__column-6">
-          <h3 class="footer__heading">Thông tin liên lạc</h3>
-          <ul class="footer__list">
-            <li class="footer__list-item">
-              <i class="fa-solid fa-people-group"></i>
-              Nhóm xxxxx
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-user"></i>
-              Lâm Nguyễn Quang Tuệ
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-id-card"></i>
-              MSSV 2112592
-            </li>
-            <li class="footer__list-item">
-              <i class="fa-solid fa-envelope"></i>
-              tue.lamkhmtk21@hcmut.edu.vn
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer> 
-  </div>--}}
-  <!-- bootstrao -->
+  <!-- Footer -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

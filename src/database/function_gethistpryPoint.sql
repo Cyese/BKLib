@@ -1,3 +1,5 @@
+use Assignment;
+GO
 CREATE FUNCTION gethistoryPoint 
 (
     @id_user INT , @date_start DATE , @date_end DATE

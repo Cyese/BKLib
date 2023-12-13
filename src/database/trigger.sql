@@ -1,6 +1,3 @@
-use Assignment;
-GO
-
 CREATE OR ALTER TRIGGER trigger_return_book
 ON Return_book 
 AFTER INSERT
@@ -44,4 +41,16 @@ BEGIN
     UPDATE [User]
     SET point = point + (SELECT point FROM inserted)
     WHERE id IN (SELECT id_user FROM inserted);
+END;
+GO
+-----------GO-------------------------
+CREATE OR ALTER TRIGGER trigger_send_book
+ON Send_book 
+AFTER INSERT
+AS 
+BEGIN
+	SET NOCOUNT ON;	
+	UPDATE [User]
+	SET point = point + 10
+	WHERE id IN (SELECT id_sender FROM INSERTED);
 END;

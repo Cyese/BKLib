@@ -1,3 +1,5 @@
+use Assignment;
+GO
 ------------- Book and relevant Book---------------
 CREATE OR ALTER PROCEDURE AddBook
     @BookTitleName VARCHAR(40),
@@ -32,7 +34,7 @@ BEGIN
     INSERT INTO Book (id_branch, status, publish, id_book_title)
     VALUES (@BranchId, 'available', @publish, @BookTitleId)
 END
-
+GO
 ---------- update book's status 
 CREATE OR ALTER PROCEDURE UpdateStatus
 	@id INT,
@@ -44,6 +46,7 @@ BEGIN
 	SET status = @status
 	WHERE id = @id AND id_branch = @id_branch
 END
+GO
 ----------- change book's info
 CREATE OR ALTER PROCEDURE UpdateBookTitle
     @id INT,
@@ -56,7 +59,7 @@ BEGIN
     SET author = @author, book_title_name = @book_title_name, min_age = @min_age
     WHERE id = @id
 END
-
+GO
 ----------- delete book
 CREATE OR ALTER PROCEDURE DeleteBook
 	@id INT,
@@ -91,7 +94,7 @@ BEGIN
 	-- 	WHERE id = @BookTitleId
     -- END
 END
-
+GO
 ------------------------------------------------------User----------------------
 CREATE OR ALTER PROCEDURE SignUp
     @FirstName VARCHAR(15),
@@ -113,7 +116,7 @@ BEGIN
     INSERT INTO [User] (fname, minit, lname, bdate, address, email, is_sender, is_borrower)
     VALUES (@FirstName, @MiddleInitial, @LastName, @BirthDate, @Address, @Email, @IsSender, @IsBorrower);
 END
-
+GO
 CREATE OR ALTER PROCEDURE UpdateUserInfo
     @UserId INT,
     @FirstName VARCHAR(15),
@@ -131,7 +134,6 @@ BEGIN
         RAISERROR('Ngày sinh không thể lớn hơn ngày hiện tại!', 5, 1);
         RETURN;
     END
-
     UPDATE [User]
     SET
         fname = @FirstName,
@@ -144,18 +146,16 @@ BEGIN
         is_borrower = @IsBorrower
     WHERE id = @UserId;
 END
-
+GO
 CREATE OR ALTER PROCEDURE DeleteUser
     @UserId INT
 AS
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM [User] WHERE id = @UserId)
     BEGIN
-        RAISEERROR('Người dùng không tồn tại!', 16, 1);
+        RAISERROR('Người dùng không tồn tại!', 16, 1);
         RETURN;
     END
 
     DELETE FROM [User] WHERE id = @UserId;
 END
-
-

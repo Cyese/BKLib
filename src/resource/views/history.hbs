@@ -32,7 +32,7 @@
           <!-- Icon De tro ve trang chu -->
           <div class="col1" , href="">
             <div class="header__logo-img">
-              <img class="hcmut__logo" src="./img/HCMUT_official_logo.png" alt="hcmut_logo" />
+              <img class="hcmut__logo" src="./img/HCMUT_official_logo.png"/>
             </div>
 
             <div class="header__logo-text">
@@ -61,17 +61,40 @@
 
                 </li>
                 <li class="nav_item">
-                  <a href="/login" class="nav_item__link">Đăng nhập</a>
+                  <a href="/login" class="nav_item__link">{{name}}</a>
                 </li>
-                <li class="nav_item">
-                  <a href="/signup" class="nav_item__link">Đăng ký</a>
+                </li>
+                  <li class="nav_item">
+                  <a href="/home/history" class="nav_item__link"> Điểm </a>
                 </li>
               </ul>
             </div>
           </div>
+          <!-- Cac chuc nang co ban -->
+          {{!-- <div class="col3">
+            <div class="header__person">
+              <ul class="Person__list">
+                <!-- Thao tac dang nhap -->
+                <li class="Person-icon__Person">
+                  <!-- <button class="btn"><i class="fa fa-home"></i></button> -->
+                  <button onclick="document.getElementById('id01').style.display='flex'" ,
+                    class="Person-icon__Person-btn">
+                    <i class="icon-img fa-solid fa-person"></i>
+                  </button>
+                  <!-- <i class="fa-solid fa-person"></i> -->
+                </li>
+                <!-- Kiem tra gio hang -->
+                <li class="Person-icon__Shopping">
+                  <button class="Person-icon__Person-btn">
+                    <i class="icon-img fa-solid fa-cart-shopping"></i>
+                  </button>
+                  <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </header>
     <!-- Nav -->
     <!-- Back Home Page -->
@@ -90,7 +113,7 @@
               <div class="introduce-form__text">
                 <h3>Giới thiệu về trang web</h3>
                 <div class="introduce-form__text_paragraph">
-
+                  <p>Ứng dụng quản lý thư viện được xây dựng với mục đích cung cấp giải pháp trong việc quản lý và lưu trữ thông tin liên quan tới các hoạt động của thư viện, từ việc lưu trữ sách tới quá trình mượn và thu hồi sách</p>
                 </div>
               </div>
 
@@ -99,22 +122,22 @@
         </div>
       </div>
     </div>
-    <div class="modal">
-          <div class="modal__overlay-introduce">
-              <div class="modal__body-introduce">
-                  <div class="introduce-form">
-                      <div class="introduce-form__img">    
-                      </div>
-                      <div class="introduce-form__text">
-                        <h3>Giới thiệu về trang web</h3>
-                        <div class="introduce-form__text_paragraph">
-                          <p>Ứng dụng quản lý thư viện được xây dựng với mục đích cung cấp giải pháp trong việc quản lý và lưu trữ thông tin liên quan tới các hoạt động của thư viện, từ việc lưu trữ sách tới quá trình mượn và thu hồi sách</p>
-                      </div>
+    <!-- <div class="modal">
+            <div class="modal__overlay-introduce">
+                <div class="modal__body-introduce">
+                    <div class="introduce-form">
+                        <div class="introduce-form__img">
+                            
+                        </div>
+                        <div class="introduce-form__text">
+                            <h3>Giới thiệu về trang web</h3>
+                            <h4> Web được tạo ra là sản phẩm của nhóm xx</h4>
+                        </div>
+                        
                     </div>
-                  </div>
-              </div>
-          </div>
-        </div>
+                </div>
+            </div>
+        </div> -->
     <!-- Back Contact Page -->
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
       style="overflow: hidden;">
@@ -135,9 +158,9 @@
                       <li>
                         <i class="fa-solid fa-user"></i>
                         Nguyễn Trương Phước Thọ
-                      </li> 
-                      <li>  
-                        <i class="fa-sharp fa-solid fa-id-badge"></i> 
+                      </li>
+                      <li>
+                        <i class="fa-sharp fa-solid fa-id-badge"></i>
                         MSSV 2114913
                       </li>
                       <li>
@@ -207,6 +230,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
@@ -216,13 +241,13 @@
   <!-- Phan Tim Kiem -->
   <div class="header__search">
     <div class="search__container">
-      <form class="form search" {{!method="POST" action="/search"}}>
-          <input type="text" class="search__input" id="searchField" placeholder="Nhập để tìm kiếm" name="item"/>
-          <!-- Nut tim kiem -->
-          <button class="search_btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-      </form>
+      <div class="search">
+        <input type="text" , class="search__input" , placeholder="Nhập để tìm kiếm" />
+        <!-- Nut tim kiem -->
+        <button class="search_btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
     </div>
   </div>
   <script>
@@ -275,70 +300,102 @@
                 Danh Mục
               </h3>
                 <ul class="category-list">
-                  <form class="category-item" method="POST" action="/">
+                  <form class="category-item" method="POST" action="/home">
                       <input type="hidden" name="category" value="Khoa hoc">
                     <button class="btn" type="submit">Khoa học</button>
                     </form>
-                  <form class="category-item" method="POST" action="/">
+                  <form class="category-item" method="POST" action="/home">
                       <input type="hidden" name="category" value="Lang man">
                     <button class="btn" type="submit">Lãng mạn</button>
                     </form>
-                  <form class="category-item" method="POST" action="/">
+                  <form class="category-item" method="POST" action="/home">
                       <input type="hidden" name="category" value="Trinh tham">
                     <button class="btn" type="submit">Trinh thám</button>
                     </form>
-                  <form class="category-item" method="POST" action="/">
+                  <form class="category-item" method="POST" action="/home">
                     <input type="hidden" name="category" value="Fantasy">
                     <button class="btn" type="submit">Fantasy</button>
                   </form>
-                </ul>
+                </ul> 
             </nav>
           </div>
-        {{!-- <script>
-          function getBookTitleList(category){
-            fetch('/', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ category: category })
-            })
-          }
-        </script> --}}
+        <script>
+          const button1 = document.getElementById("btnClick1")
+          button1.addEventListener('click', () => {
+              const data = button1.dataset.query
+              var currentUri = window.location.href
+              if (currentUri.indexOf('&') !== -1){
+                currentUri = currentUri.slice(0, currentUri.indexOf('&')+1)
+                currentUri = currentUri + "type=" + data
+              }
+              else {
+                currentUri = currentUri + "&type=" + data
+              }
+              window.location.href = currentUri
+          })
+          const button2 = document.getElementById("btnClick2")
+          button2.addEventListener('click', () => {
+              const data = button2.dataset.query
+              var currentUri = window.location.href
+              if (currentUri.indexOf('&') !== -1){
+                currentUri = currentUri.slice(0, currentUri.indexOf('&')+1)
+                currentUri = currentUri + "type=" + data
+              }
+              else {
+                currentUri = currentUri + "&type=" + data
+              }
+              window.location.href = currentUri
+          })
+          const button3 = document.getElementById("btnClick3")
+          button3.addEventListener('click', () => {
+              const data = button3.dataset.query
+              var currentUri = window.location.href
+              if (currentUri.indexOf('&') !== -1){
+                currentUri = currentUri.slice(0, currentUri.indexOf('&')+1)
+                currentUri = currentUri + "type=" + data
+              }
+              else {
+                currentUri = currentUri + "&type=" + data
+              }
+              window.location.href = currentUri
+          })
+          const button4 = document.getElementById("btnClick4")
+          button4.addEventListener('click', () => {
+              const data = button4.dataset.query
+              var currentUri = window.location.href
+              if (currentUri.indexOf('&') !== -1){
+                currentUri = currentUri.slice(0, currentUri.indexOf('&')+1)
+                currentUri = currentUri + "type=" + data
+              }
+              else {
+                currentUri = currentUri + "&type=" + data
+              }
+              window.location.href = currentUri
+          })
+        </script>
           <div class="grid__column-10">
-            <div class="home-filter">
-            </div>
             <div class="home-product">
-              <div class="grid__row">
-                {{#if Books}}
-                  {{#each Books}}
-                    <span class="border border-success-subtle rounded">
-                          <div class="card" style="width: 16rem">
-                          {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-                            <div class="card-body">
-                              <h5 class="card-title fs-3"></h5><strong>{{this.book_title_name}}</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text fs-6 lh-1"><i>Author: {{this.author}}</i></p>
-                                {{!-- <p class="card-text fs-6 lh-1">Publish Year:{{this.publishYear}}</p> --}}
-                                <p class="card-text fs-6 lh-1">Availabe: {{this.total_book}}</p>
-                            </div>
-                            {{!-- <div class="card-footer">
-                              <button class="btn btn-primary" id = "bButton", data-query="{title : {{this.title}} }">Borrow</button>
-                            </div> --}}
-                      </div>
-                    </span>
-                  {{/each}}
-                  {{else}}
-                    <div class = "col-sm-12"><p>
-                      No books found
-                    </p></div>
-                {{/if}}
-                <script>
-                    {{!-- const button = document.getElementById("bButton")
-                    button.dataset.toObject()
-                    console(button) --}}
-                </script>
+              <div class="grid__row gap-2 justify-content-center" >
+                    <div class = "row d-flex">
+                    <table class="table table-primary table-striped">
+                    <thead> 
+                        <th scope="col"> Ngày thay đổi </th>
+                        <th scope="col"> Lý do thay đổi  </th>
+                        <th scope="col"> ID quyển sách liên quan </th>
+                        <th scope="col"> Số điểm thay đổi</th>
+                    </thead>
+                    <tbody>
+                        {{#each history}}
+                        <tr>
+                            <td>{{this.ngay}}</td>
+                            <td>{{this.li_do}}</td>
+                            <td>{{this.id_sach}}</td>
+                            <td>{{this.diem_thay_doi}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>  
+                    </table>
+                    </div>
               </div>
             </div>
           </div>
@@ -346,8 +403,7 @@
       </div>
     </div>
   </div>
-  </div>
-  <!-- bootstrao -->
+  <!-- Footer -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

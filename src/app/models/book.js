@@ -17,7 +17,7 @@ class Book {
     }
     async getBookLocation(id) {
         try {
-            console.log(id);
+            // console.log(id);
             const queryString = 'SELECT b.publish AS publish_year, br.name AS branch_name, br.address AS branch_address, b.status AS status FROM (SELECT * FROM Book WHERE id_book_title = @Id) b JOIN Branch br ON b.id_branch = br.id';
             const pool = await poolPromise;
             const result = await pool.request()
@@ -32,6 +32,19 @@ class Book {
         } catch (error) {
             console.log(error);
             // return new Exception(error);
+        }
+    }
+    async search(string){
+        try {
+            const queryString = "EXEC findBook @search_term = @input";
+            const pool = await poolPromise;
+            const result = await pool.request()
+                .input('input', sql.NVarChar, string)
+                .query(queryString);
+            // console.log(result);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
         }
     }
 }

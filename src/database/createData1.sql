@@ -1,4 +1,4 @@
---use Assignment;
+use Assignment;
 -- ==== Librarian ====
 INSERT INTO Librarian (fname, minit, lname, email, sex)
 VALUES ('Vu', 'S', 'Trang', 'vustrang@outlook.com', 'F');
@@ -35,7 +35,7 @@ VALUES (1, '070287360678');
 
 INSERT INTO Phone_number_librarian
 VALUES (4, '0894621071');
-GO
+
 -- ==== Branch ====
 
 INSERT INTO Branch (name, address, id_librarian)
@@ -52,7 +52,7 @@ VALUES ('Hue', '1 Le Loi, Hue', 4);
 
 INSERT INTO Branch (name, address, id_librarian)
 VALUES ('Nha Trang', '2 Nguyen Thien Thuat, Nha Trang', 5);
-GO
+
 -- ==== Book ====
 
 INSERT INTO Category (name)
@@ -102,7 +102,7 @@ VALUES ('Ton giao');
 
 INSERT INTO Category (name)
 VALUES ('Khoa hoc');
-GO 
+
 -- ==== BookTitle ====
 -- Science Fiction:
 INSERT INTO Book_title (author, book_title_name)
@@ -298,7 +298,8 @@ VALUES ('Carl Sagan', 'Cosmos');
 
 INSERT INTO Book_title (author, book_title_name)
 VALUES ('Brian Greene', 'The Elegant Universe');
-GO
+
+
 
 -- ==== Belongto_category ====
 -- use Assignment;
@@ -432,7 +433,7 @@ INSERT INTO Belongto_category (id_book, name_category)
 VALUES (64, 'Khoa hoc');
 INSERT INTO Belongto_category (id_book, name_category)
 VALUES (65, 'Khoa hoc');
-GO
+
 -- ==== User ====
 --use Assignment;
 INSERT INTO [User] (fname, minit, lname, bdate, email)
@@ -509,7 +510,7 @@ VALUES ('Lam', 'N', 'Phuong', '2002-06-20', 'phuonglam@gmail.com');
 
 INSERT INTO [User] (fname, minit, lname, bdate, email)
 VALUES ('Lam', 'Y', 'Nhan', '2005-11-09', 'nhanlam@gmail.com');
-GO
+
 -- ==== Phone_number ====
 -- use Assignment;
 INSERT INTO Phone_number (id_user, phone_number)

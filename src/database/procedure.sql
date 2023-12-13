@@ -1,16 +1,16 @@
 use Assignment;
 GO
 -- Procedure 1: Find book by title/author's name
-CREATE PROCEDURE findBook @search_term VARCHAR(40)
+CREATE OR ALTER PROCEDURE findBook @search_term VARCHAR(40)
 AS
 BEGIN
-    SELECT book_title_name, total_book, status, id_branch, publish
+    SELECT book_title_name, author, status, id_branch, publish
     FROM Book_title as t JOIN Book as b ON t.id = b.id_book_title
     WHERE LOWER(book_title_name) LIKE LOWER(CONCAT('%', @search_term, '%'))
        OR LOWER(author) LIKE LOWER(CONCAT('%', @search_term, '%'));
 END;
 GO
--- EXEC findBook @search_term = 'Harry'
+--EXEC findBook @search_term = 'Rowling'
 
 -- Procedure 2: Find user send/borrow most
 
