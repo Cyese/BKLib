@@ -2,7 +2,7 @@
 use Assignment;
 GO
 
-CREATE FUNCTION getBook_Top_nth_Feedback 
+CREATE OR ALTER FUNCTION getBook_Top_nth_Feedback 
 ( @nth INT, @date_start DATE, @date_end DATE )
 RETURNS @Result TABLE
     (
@@ -19,14 +19,7 @@ BEGIN
     WHERE f.date_fb >= @date_start AND f.date_fb <= @date_end
     GROUP BY bt.id, bt.book_title_name
     ORDER BY COUNT(f.id) DESC;
-
-    IF NOT EXISTS (SELECT 1 FROM @Result)
-    BEGIN
-        INSERT INTO @Result (id, book_title_name, feedback_count)
-        VALUES (NULL, 'Không có quyển nào được feedback', 0);
-    END
-
     RETURN
 END
 
--- SELECT * FROM getBook_Top_nth_Feedback( 4, '2023-11-01' , '2023-11-30'  )
+SELECT * FROM getBook_Top_nth_Feedback( 10, '2023-11-29' , '2023-11-30'  )

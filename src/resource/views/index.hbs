@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TESTING</title>
+  <title>Thư viện cộng đồng</title>
   {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -135,9 +135,9 @@
                       <li>
                         <i class="fa-solid fa-user"></i>
                         Nguyễn Trương Phước Thọ
-                      </li>
-                      <li>
-                        <i class="fa-sharp fa-solid fa-id-badge"></i>
+                      </li> 
+                      <li>  
+                        <i class="fa-sharp fa-solid fa-id-badge"></i> 
                         MSSV 2114913
                       </li>
                       <li>
@@ -207,8 +207,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -218,13 +216,13 @@
   <!-- Phan Tim Kiem -->
   <div class="header__search">
     <div class="search__container">
-      <div class="search">
-        <input type="text" , class="search__input" , placeholder="Nhập để tìm kiếm" />
-        <!-- Nut tim kiem -->
-        <button class="search_btn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+      <form class="form search" {{!method="POST" action="/search"}}>
+          <input type="text" class="search__input" id="searchField" placeholder="Nhập để tìm kiếm" name="item"/>
+          <!-- Nut tim kiem -->
+          <button class="search_btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+      </form>
     </div>
   </div>
   <script>

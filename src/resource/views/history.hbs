@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TESTING</title>
+  <title>Thư viện cộng đồng</title>
   {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -32,7 +32,7 @@
           <!-- Icon De tro ve trang chu -->
           <div class="col1" , href="">
             <div class="header__logo-img">
-              <img class="hcmut__logo" src="./img/HCMUT_official_logo.png" alt="hcmut_logo" />
+              <img class="hcmut__logo" src="./img/HCMUT_official_logo.png"/>
             </div>
 
             <div class="header__logo-text">
@@ -62,6 +62,10 @@
                 </li>
                 <li class="nav_item">
                   <a href="/login" class="nav_item__link">{{name}}</a>
+                </li>
+                </li>
+                  <li class="nav_item">
+                  <a href="/home/history" class="nav_item__link"> Điểm </a>
                 </li>
               </ul>
             </div>
@@ -375,21 +379,21 @@
                     <div class = "row d-flex">
                     <table class="table table-primary table-striped">
                     <thead> 
-                        <th scope="col"> Năm xuất bản </th>
-                        <th scope="col"> Tên chi nhánh  </th>
-                        <th scope="col"> Địa chỉ </th>
-                        <th scope="col"> Trạng thái</th>
+                        <th scope="col"> Ngày thay đổi </th>
+                        <th scope="col"> Lý do thay đổi  </th>
+                        <th scope="col"> ID quyển sách liên quan </th>
+                        <th scope="col"> Số điểm thay đổi</th>
                     </thead>
                     <tbody>
-                        {{#each list}}
+                        {{#each history}}
                         <tr>
-                            <td>{{this.publish_year}}</td>
-                            <td>{{this.branch_name}}</td>
-                            <td>{{this.branch_address}}</td>
-                            <td>{{this.status}}</td>
+                            <td>{{this.ngay}}</td>
+                            <td>{{this.li_do}}</td>
+                            <td>{{this.id_sach}}</td>
+                            <td>{{this.diem_thay_doi}}</td>
                         </tr>
                         {{/each}}
-
+                    </tbody>  
                     </table>
                     </div>
               </div>

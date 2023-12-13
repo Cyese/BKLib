@@ -34,8 +34,23 @@ class UserHomeController{
     
     async history(req,res,next){
         const id = req.session.user;
-        const result = await user.getHistory(id);
-        res.render('history', {history : result});
+        const result = await user.getPointHisory(id);
+        // console.log(result);
+        res.render('history', {name: req.session.name,history : result});
+    }
+    async search(req, res, next){
+        const string = req.body.item;
+        // console.log(string);
+        const result = await book.search(string);
+        // console.log(result);
+        res.render('home', {search : result, name: req.session.name});
+
+    }
+    async feedback(req, res, next){
+        const id = req.session.user;
+        const result = await user.getPointHisory(id);
+        // console.log(result);
+        res.render('history', {name: req.session.name,history : result});
     }
 }
 

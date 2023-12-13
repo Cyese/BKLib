@@ -1,12 +1,13 @@
 {
   "name": "bklib",
-  "version": "1.0.0",
-  "description": "Advanced Programming Project",
+  "version": "1.0.2",
+  "description": "Advanced Programming Project && Database Project",
   "main": "librabry.js",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
