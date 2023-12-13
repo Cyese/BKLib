@@ -1,117 +1,38 @@
 <div class="mt-4">
     <div>
-      <h3>Danh sách Sách</h3>
+      <h3>Danh sách sách</h3>
     </div>
-    <!-- A button to open the popup form -->
-        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add"> Thêm sách</a>
+
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col">No</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Publish year</th>
-                <th scope="col">Total Amount</th>
-                <th scope="col">In store</th>
-                <th scope="col"></th>
+                <th scope="col">id</th>
+                <th scope="col">Tên chi nhánh</th>
+                <th scope="col">Tình trạng</th>
+                <th scope="col">Năm xuất bản</th>
+                <th scope="col">Tên tựa sách</th>
             </tr>
         </thead>
         <tbody>
-            {{#each books}}
+            {{#each Books}}
             <tr>
-                <th scope="row">{{sum @index 1}}</th>
-                <td>{{this.title}}</td>
-                <td>{{this.author}}</td>
-                <td>{{this.publishYear}}</td>
-                <td>{{this.quantity}}</td>
-                <td>{{this.available}}</td>
-                <td>
-                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modify" data-id="{{this._id}}">Remove </a>
-                </td>
+                {{!-- <th scope="row">{{sum @index 1}}</th> --}}
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.publish}}</td>
+                <td>{{this.book_title_name  }}</td>
+                {{!-- <td>
+                  <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_account_modal" data-id="{{this._id}}"> Xóa </a>
+                </td> --}}
             </tr>
-
-
             {{else}}
             <tr>
-              <td colspan="6" class="text-center">
-                Chua co cuon sach nao 
+              <td colspan="5" class="text-center">
+                Chưa có quyển sách nào
               </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
 </div>
-
-<div id="modify" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"> Bạn có muốn xóa</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button id="btn-delete-book" type="button" class="btn btn-danger">Xóa bỏ</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- The form -->
-<div id="add" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title">
-              Thêm sách
-           </h5>
-         </div>  
-         <div class="modal-body">
-           <form class="form"  name="addBook">
-            <label for="title"><b>Tựa sách</b></label>
-            <input type="text" class="input" placeholder="Nhập tựa sách" name="title" required>
-            <label for="author" ><b>Tác giả</b></label>
-            <input type="text" class="input" placeholder="Nhập tác giả" name="author" required>
-            <label for="publishYear"><b>Năm xuất bản</b></label>
-            <input type="number" class="input" placeholder="Nhập năm xuất bản" name="publishYear">
-            <label for="type">Chọn loại sách:</label>
-              <select id="dropdown" name="type" class="input">
-                <option value="Novel">Tiểu thuyết</option>
-                <option value="Document">Tài liệu</option>
-                <option value="Megazine">Tạp chí</option>
-                <option value="Comic">Truyện tranh</option>
-              </select>
-          </form>
-        </div>
-        <div class ="modal-footer">
-           <button class="btn btn-primary" id="btnAdd">Thêm sách</button>
-        </div>
-      </div>
-  </div>
-</div>
-
-<form name="modifyBook" method="POST"></form>
-<script>
-  document.addEventListener('DOMContentLoaded', function(){
-    var bookId
-    var modifyForm = document.forms['modifyBook']
-    var addFrom = document.forms['addBook']
-    var btnDelete = document.getElementById('btn-delete-book')
-    var btnAdd= document.getElementById('btnAdd')
-    $('#modify').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      bookId = button.data('id')
-    })
-    $('#add').on('show.bs.modal', function (event){
-      var button = $(event.relatedTarget)
-    })
-    btnDelete.onclick= function(){
-        modifyForm.action = 'book/' + bookId + '?_method=DELETE'
-        modifyForm.submit()
-    }
-    btnAdd.onclick = function(){
-      addFrom.action = 'book/create/?_method=POST'
-      addFrom.submit()  
-    }
-  })
-</script>

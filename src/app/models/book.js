@@ -1,6 +1,20 @@
 const {poolPromise, sql} = require('../config/database');
 
 class Book {
+    async loadBook(Book) {
+        try {
+            const queryString = 'SELECT b.id, br.name, b.status, b.publish, bt.book_title_name FROM (Book as b Join Book_title as bt On b.id_book_title = bt.id) JOIN Branch as br ON id_branch = br.id';
+            const pool = await poolPromise;
+            const result = await pool.request()
+                .query(queryString);
+            // console.log(result.recordset);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            // return new Exception(error);
+        }
+    }
+
     async loadByCatergory(Catergory) {
         try {
             const queryString = 'SELECT id, author, total_book, book_title_name FROM (Book_title b JOIN (SELECT * FROM Belongto_category WHERE name_category = @Catergory) bl ON b.id = bl.id_book)';

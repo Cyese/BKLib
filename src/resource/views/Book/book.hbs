@@ -1,1 +1,38 @@
-<h1>Book home page</h1>
+<div class="mt-4">
+    <div>
+      <h3>Danh sách sách</h3>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">id chi nhánh</th>
+                <th scope="col">Tình trạng</th>
+                <th scope="col">Năm xuất bản</th>
+                <th scope="col">id tựa sách</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each Receipts}}
+            <tr>
+                {{!-- <th scope="row">{{sum @index 1}}</th> --}}
+                <td>{{this.id}}</td>
+                <td>{{this.id_branch}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.publish}}</td>
+                <td>{{this.id_book_title}}</td>
+                {{!-- <td>
+                  <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_account_modal" data-id="{{this._id}}"> Xóa </a>
+                </td> --}}
+            </tr>
+            {{else}}
+            <tr>
+              <td colspan="5" class="text-center">
+                Chưa có quyển sách nào
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

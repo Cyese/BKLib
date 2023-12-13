@@ -6,26 +6,38 @@
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col">No</th>
-                <th scope="col">Tên đăng nhập</th>
+                <th scope="col">Họ</th>
+                <th scope="col">Tên đệm</th>
+                <th scope="col">Tên</th>
+                <th scope="col">id người dùng</th>
+                <th scope="col">Ngày sinh</th>
                 <th scope="col">Email</th>
-                <th scope="col"></th>
+                <th scope="col">Người gửi</th>
+                <th scope="col">Người mượn</th>
+                <th scope="col">Điểm</th>
             </tr>
         </thead>
         <tbody>
-            {{#each accounts}}
+            {{#each Accounts}}
             <tr>
-                <th scope="row">{{sum @index 1}}</th>
-                <td>{{this.name}}</td>
+                {{!-- <th scope="row">{{sum @index 1}}</th> --}}
+                <td>{{this.fname}}</td>
+                <td>{{this.minit}}</td>
+                <td>{{this.lname}}</td>
+                <td>{{this.id}}</td>
+                <td>{{this.bdate}}</td>
                 <td>{{this.email}}</td>
-                <td>
+                <td>{{this.is_sender}}</td>
+                <td>{{this.is_borrower}}</td>
+                <td>{{this.point}}</td>
+                {{!-- <td>
                   <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_account_modal" data-id="{{this._id}}"> Xóa </a>
-                </td>
+                </td> --}}
             </tr>
             {{else}}
             <tr>
               <td colspan="5" class="text-center">
-                Chưa có tài khoảng nào
+                Chưa có tài khoản nào
               </td>
             </tr>
             {{/each}}
@@ -35,7 +47,7 @@
 
 {{!-- Confirm delete account --}}
 
-<div id="delete_account_modal" class="modal" tabindex="-1">
+{{!-- <div id="delete_account_modal" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -51,10 +63,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{!-- Delete form --}}
-<form name="delete-account-form" method="POST"></form>
+{{!-- <form name="delete-account-form" method="POST"></form>
 
 <script>
   document.addEventListener('DOMContentLoaded', function(){
@@ -74,4 +86,4 @@
 
   })
 
-</script>
+</script> --}}

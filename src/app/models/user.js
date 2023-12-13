@@ -1,6 +1,20 @@
 const {poolPromise, sql} = require('../config/database');
 
 class User {
+    async loadUser(User) {
+        try {
+            const queryString = 'SELECT fname, minit, lname, id, bdate, email, is_sender, is_borrower, point FROM [User]';
+            const pool = await poolPromise;
+            const result = await pool.request()
+                .query(queryString);
+            // console.log(result.recordset);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            // return new Exception(error);
+        }
+    }
+
     async checkUserEmail(email) {
         try {
             const queryString = 'SELECT TOP 1 * FROM [User] WHERE email = @Email';
