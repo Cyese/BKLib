@@ -7,7 +7,7 @@
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "morgan": "^1.10.0",
-    "node-sass": "^8.0.0",
     "nodemon": "^3.0.2"
   }
 }
