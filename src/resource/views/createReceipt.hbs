@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Form Example</title>
+    <!-- Include Handlebars library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<body>
+
+   
+
 <div class="form-box mx-auto col-10 col-md-8 col-lg-6">
     <!-- Your form container -->  
     <div id="form-container"></div>
@@ -9,15 +22,19 @@
                 <option value="1">Biên nhận nhận sách</option>
                 <option value="2">Biên nhận mượn sách</option>
             </select>
-
-            <button type="submit">Submit</button>
+			<br>
+            <button type="submit">Xác nhận</button>
         </form>
     </script>
 
     <script id="form1-template" type="text/x-handlebars-template">
-        <form>
+        <form action="/adminhome/createreceipt" method="post" class="form">
             <label for="state">Tình trạng:</label>
-            <input type="text" id="state" name="state" value="{{state}}" required>
+            <select name="state" id="state">
+                <option value="nguyen_ven">Nguyên vẹn</option>
+                <option value="hu_hong_nhe">Hư hỏng nhẹ</option>
+                <option value="hu_hong_nang">Hư hỏng nặng</option>
+            </select>
 			<br>
             <label for="date_exported">Ngày in biên nhận:</label>
             <input type="date" id="date_exported" name="date_exported" value="{{date_exported}}" required>
@@ -25,15 +42,18 @@
             <label for="id_librarian">Mã số thủ thư in biên nhận:</label>
             <input type="text" id="id_librarian" name="id_librarian" value="{{id_librarian}}" required>
             <br>
-            <button type="submit">Submit Form 1</button>
+            <button type="submit">Tạo biên nhận</button>
         </form>
     </script>
 
     <script id="form2-template" type="text/x-handlebars-template">
-        <form>
+        <form action="/adminhome/createreceipt" method="post" class="form">
             <label for="state">Tình trạng:</label>
-            <input type="text" id="state" name="state" value="{{state}}" required>
-			<br>
+            <select name="state" id="state">
+                <option value="nguyen_ven">Nguyên vẹn</option>
+                <option value="hu_hong_nhe">Hư hỏng nhẹ</option>
+                <option value="hu_hong_nang">Hư hỏng nặng</option>
+            </select>
             <label for="date_exported">Ngày in biên nhận:</label>
             <input type="date" id="date_exported" name="date_exported" value="{{date_exported}}" required>
             <br>
@@ -43,7 +63,7 @@
             <label for="date_exported">Ngày trả sách:</label>
             <input type="date" id="date_expire" name="date_expire" value="{{date_expire}}" required>
             <br>
-            <button type="submit">Submit Form 1</button>
+            <button type="submit">Tạo biên nhận</button>
         </form>
     </script>
 
@@ -70,10 +90,13 @@
 
             // Render the corresponding form based on the user's choice
             if (formData.choice === "1") {
-                document.getElementById('form-container').innerHTML = form1Template({ state: "", date_exported: "", id_librarian:"" });
+                document.getElementById('form-container').innerHTML = form1Template({ date_exported: "", id_librarian:"" });
             } else if (formData.choice === "2") {
-                document.getElementById('form-container').innerHTML = form2Template({ state: "", date_exported: "", id_librarian:"", date_expire:"" });
+                document.getElementById('form-container').innerHTML = form2Template({ date_exported: "", id_librarian:"", date_expire:"" });
             }
         });
     </script>
 </div>
+
+</body>
+</html>

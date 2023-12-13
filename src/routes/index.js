@@ -2,7 +2,7 @@ const TrangChuRouter=require('./TrangChuRoute')
 const userLoginRouter=require('./LoginRoute')
 const userSignupRouter=require('./SignupRoute')
 const userHomeRouter=require('./userHomeRoute')
-// const adminHomeRouter=require('./adminHomeRoute')
+const adminHomeRouter=require('./adminHomeRoute')
 
 function route(app){
     app.use('/', TrangChuRouter);
@@ -12,7 +12,7 @@ function route(app){
 
     app.use('/home', userHomeRouter)
     
-    // app.use('/adminhome', adminHomeRouter)
+    app.use('/adminhome', adminHomeRouter)
 
 }
 

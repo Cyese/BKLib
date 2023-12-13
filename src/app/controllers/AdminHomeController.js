@@ -1,6 +1,7 @@
 const { render } = require('node-sass')
 const { multipleToObject } = require('../../util/mongoose')
 const account=require('../models/old/accountdb')
+const Receipt = require('../models/receipt');
 const book=require('../models/old/book')
 const Library = require('./Library')
 class AdminHomeController{
@@ -61,6 +62,21 @@ class AdminHomeController{
             res.redirect('/adminhome/book')
         )
     }
+
+    async getReceipt(req, res, next){
+        const result = await Receipt.loadReceipt();
+        // console.log(Receipt.loadReceipt());
+        res.render('receipt', {Receipts: result});
+    }
+
+    async getCreateReceipt(req, res, next){
+        res.render('createreceipt');
+    }
+
+    // async createReceipt(req, res, next){
+        
+    // }
+
 }
 
 module.exports = new AdminHomeController

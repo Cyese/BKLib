@@ -34,6 +34,12 @@ app.use(
 //Template engine
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resource/views'))
+app.engine('hbs', exphbs({
+  extname: '.hbs',
+  helpers:{
+    sum: (a, b) => a+b,
+  }
+}))
 
 // Routes
 route(app)

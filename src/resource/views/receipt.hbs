@@ -1,0 +1,79 @@
+<div class="mt-4">
+    <div>
+      <h3>Danh sách biên nhận</h3>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Tình trạng</th>
+                <th scope="col">Ngày in biên nhận</th>
+                <th scope="col">id thủ thư</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each Receipts}}
+            <tr>
+                {{!-- <th scope="row">{{sum @index 1}}</th> --}}
+                <td>{{this.id}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.date_exported}}</td>
+                <td>{{this.id_librarian}}</td>
+                {{!-- <td>
+                  <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_account_modal" data-id="{{this._id}}"> Xóa </a>
+                </td> --}}
+            </tr>
+            {{else}}
+            <tr>
+              <td colspan="5" class="text-center">
+                Chưa có biên nhận nào
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{!-- Confirm delete account --}}
+
+{{!-- <div id="delete_account_modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">CHÚ Ý!!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc muốn xóa tài khoản này ra khỏi hệ thống?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-account" type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Delete form --}}
+<form name="delete-account-form" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var accountId
+    var deleteForm = document.forms['delete-account-form']
+    var btnDeleteAccount = document.getElementById('btn-delete-account')
+
+    $('#delete_account_modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      accountId = button.data('id')
+    })
+
+    btnDeleteAccount.onclick = function (){
+      deleteForm.action = 'account/' + accountId + '?_method=DELETE'
+      deleteForm.submit()
+    }
+
+  })
+
+</script> --}}
