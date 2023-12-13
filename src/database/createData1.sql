@@ -1,4 +1,4 @@
---use Assignment;
+use Assignment;
 -- ==== Librarian ====
 INSERT INTO Librarian (fname, minit, lname, email, sex)
 VALUES ('Vu', 'S', 'Trang', 'vustrang@outlook.com', 'F');
@@ -71,7 +71,7 @@ INSERT INTO Category (name)
 VALUES ('Kinh di');
 
 INSERT INTO Category (name)
-VALUES ('Hoi hop');
+VALUES ('Kich tinh');
 
 INSERT INTO Category (name)
 VALUES ('Bi an');
@@ -304,15 +304,15 @@ VALUES ('Brian Greene', 'The Elegant Universe');
 -- ==== Belongto_category ====
 -- use Assignment;
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (1, 'Khoa hoc vien tieuong');
+VALUES (1, 'Khoa hoc vien tuong');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (2, 'Khoa hoc vien tieuong');
+VALUES (2, 'Khoa hoc vien tuong');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (3, 'Khoa hoc vien tieuong');
+VALUES (3, 'Khoa hoc vien tuong');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (4, 'Khoa hoc vien tieuong');
+VALUES (4, 'Khoa hoc vien tuong');
 INSERT INTO Belongto_category (id_book, name_category)
-VALUES (5, 'Khoa hoc vien tieuong');
+VALUES (5, 'Khoa hoc vien tuong');
 INSERT INTO Belongto_category (id_book, name_category)
 VALUES (6, 'Fantasy');
 INSERT INTO Belongto_category (id_book, name_category)

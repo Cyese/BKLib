@@ -3,6 +3,8 @@ GO
 
 SELECT * FROM Book_title;
 
+SELECT * FROM Receipt;
+
 UPDATE Book_title
 SET total_book = (SELECT COUNT(id) FROM Book WHERE Book.id_book_title = Book_title.id);
 GO
@@ -19,6 +21,9 @@ UPDATE Category SET name = 'Kich tinh' WHERE name = 'Hoi hop';
 
 
 SELECT * FROM getbooklist(65);
+SELECT * FROM Book;
+SELECT * FROM Receipt_borrow_book
+
 
 USE [Assignment]
 GO

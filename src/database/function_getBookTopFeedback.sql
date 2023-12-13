@@ -1,4 +1,7 @@
 -- ham tinh tua sach co feebback thuojc top n
+use Assignment;
+GO
+
 CREATE FUNCTION getBook_Top_nth_Feedback 
 ( @nth INT, @date_start DATE, @date_end DATE )
 RETURNS @Result TABLE
